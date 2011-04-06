@@ -1,1 +1,4 @@
-htdocs/sites/default/settings.php
+/app/config
+/app/tmp
+/plugins
+/vendors
