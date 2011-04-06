@@ -27,6 +27,7 @@ CREATE TABLE participants (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   full_name VARCHAR(100),
   email VARCHAR(100),
+  company VARCHAR(40),
   project_id INT UNSIGNED,
   FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
