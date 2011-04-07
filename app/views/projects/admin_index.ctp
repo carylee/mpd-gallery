@@ -4,8 +4,8 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
-			<th><?php echo $this->Paginator->sort('product_description');?></th>
-			<th><?php echo $this->Paginator->sort('mpd_class_id');?></th>
+			<th><?php echo $this->Paginator->sort('description');?></th>
+			<th><?php echo $this->Paginator->sort('mpd_class');?></th>
 			<th><?php echo $this->Paginator->sort('date_presented');?></th>
 			<th><?php echo $this->Paginator->sort('patent_number');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -21,10 +21,8 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $project['Project']['id']; ?>&nbsp;</td>
 		<td><?php echo $project['Project']['title']; ?>&nbsp;</td>
-		<td><?php echo $project['Project']['product_description']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($project['MpdClass']['name'], array('controller' => 'mpd_classes', 'action' => 'view', $project['MpdClass']['id'])); ?>
-		</td>
+		<td><?php echo $project['Project']['description']; ?>&nbsp;</td>
+		<td><?php echo $project['Project']['mpd_class']; ?>&nbsp;</td>
 		<td><?php echo $project['Project']['date_presented']; ?>&nbsp;</td>
 		<td><?php echo $project['Project']['patent_number']; ?>&nbsp;</td>
 		<td class="actions">
@@ -53,8 +51,6 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Project', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Mpd Classes', true), array('controller' => 'mpd_classes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mpd Class', true), array('controller' => 'mpd_classes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Participants', true), array('controller' => 'participants', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Participant', true), array('controller' => 'participants', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Pictures', true), array('controller' => 'pictures', 'action' => 'index')); ?> </li>

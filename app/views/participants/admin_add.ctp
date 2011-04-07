@@ -3,8 +3,9 @@
 	<fieldset>
 		<legend><?php __('Admin Add Participant'); ?></legend>
 	<?php
-		echo $this->Form->input('full_name');
+		echo $this->Form->input('name');
 		echo $this->Form->input('email');
+		echo $this->Form->input('company');
 		echo $this->Form->input('project_id');
 	?>
 	</fieldset>

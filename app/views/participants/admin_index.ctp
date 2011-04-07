@@ -3,8 +3,9 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('full_name');?></th>
+			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
+			<th><?php echo $this->Paginator->sort('company');?></th>
 			<th><?php echo $this->Paginator->sort('project_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -18,8 +19,9 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $participant['Participant']['id']; ?>&nbsp;</td>
-		<td><?php echo $participant['Participant']['full_name']; ?>&nbsp;</td>
+		<td><?php echo $participant['Participant']['name']; ?>&nbsp;</td>
 		<td><?php echo $participant['Participant']['email']; ?>&nbsp;</td>
+		<td><?php echo $participant['Participant']['company']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($participant['Project']['title'], array('controller' => 'projects', 'action' => 'view', $participant['Project']['id'])); ?>
 		</td>

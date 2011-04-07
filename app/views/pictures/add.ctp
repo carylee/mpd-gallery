@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php __('Add Picture'); ?></legend>
 	<?php
-		echo $this->Form->input('url');
+		echo $this->Form->input('filename');
 		echo $this->Form->input('project_id');
 	?>
 	</fieldset>

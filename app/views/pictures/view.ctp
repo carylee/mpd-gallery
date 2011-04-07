@@ -6,9 +6,9 @@
 			<?php echo $picture['Picture']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Url'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Filename'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $picture['Picture']['url']; ?>
+			<?php echo $picture['Picture']['filename']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Project'); ?></dt>

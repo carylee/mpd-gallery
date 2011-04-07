@@ -3,6 +3,16 @@ class Project extends AppModel {
 	var $name = 'Project';
 	var $displayField = 'title';
 	var $validate = array(
+		'id' => array(
+			'n' => array(
+				'rule' => array('n'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -35,16 +45,6 @@ class Project extends AppModel {
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-	var $belongsTo = array(
-		'MpdClass' => array(
-			'className' => 'MpdClass',
-			'foreignKey' => 'mpd_class_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
 
 	var $hasMany = array(
 		'Participant' => array(

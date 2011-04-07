@@ -11,14 +11,14 @@
 			<?php echo $project['Project']['title']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Product Description'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['product_description']; ?>
+			<?php echo $project['Project']['description']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Mpd Class'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($project['MpdClass']['name'], array('controller' => 'mpd_classes', 'action' => 'view', $project['MpdClass']['id'])); ?>
+			<?php echo $project['Project']['mpd_class']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Presented'); ?></dt>
@@ -40,8 +40,6 @@
 		<li><?php echo $this->Html->link(__('Delete Project', true), array('action' => 'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Mpd Classes', true), array('controller' => 'mpd_classes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mpd Class', true), array('controller' => 'mpd_classes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Participants', true), array('controller' => 'participants', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Participant', true), array('controller' => 'participants', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Pictures', true), array('controller' => 'pictures', 'action' => 'index')); ?> </li>
@@ -54,8 +52,9 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Full Name'); ?></th>
+		<th><?php __('Name'); ?></th>
 		<th><?php __('Email'); ?></th>
+		<th><?php __('Company'); ?></th>
 		<th><?php __('Project Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -69,8 +68,9 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $participant['id'];?></td>
-			<td><?php echo $participant['full_name'];?></td>
+			<td><?php echo $participant['name'];?></td>
 			<td><?php echo $participant['email'];?></td>
+			<td><?php echo $participant['company'];?></td>
 			<td><?php echo $participant['project_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'participants', 'action' => 'view', $participant['id'])); ?>
@@ -94,7 +94,7 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Url'); ?></th>
+		<th><?php __('Filename'); ?></th>
 		<th><?php __('Project Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -108,7 +108,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $picture['id'];?></td>
-			<td><?php echo $picture['url'];?></td>
+			<td><?php echo $picture['filename'];?></td>
 			<td><?php echo $picture['project_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'pictures', 'action' => 'view', $picture['id'])); ?>

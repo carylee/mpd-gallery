@@ -26,8 +26,6 @@ class ProjectsController extends AppController {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
 		}
-		$mpdClasses = $this->Project->MpdClass->find('list');
-		$this->set(compact('mpdClasses'));
 	}
 
 	function edit($id = null) {
@@ -46,8 +44,6 @@ class ProjectsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
-		$mpdClasses = $this->Project->MpdClass->find('list');
-		$this->set(compact('mpdClasses'));
 	}
 
 	function delete($id = null) {
@@ -85,8 +81,6 @@ class ProjectsController extends AppController {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
 		}
-		$mpdClasses = $this->Project->MpdClass->find('list');
-		$this->set(compact('mpdClasses'));
 	}
 
 	function admin_edit($id = null) {
@@ -105,8 +99,6 @@ class ProjectsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
-		$mpdClasses = $this->Project->MpdClass->find('list');
-		$this->set(compact('mpdClasses'));
 	}
 
 	function admin_delete($id = null) {
