@@ -1,128 +1,43 @@
-<div class="projects view">
-<h2><?php  __('Project');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['title']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Product Description'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['product_description']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Mpd Class'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($project['MpdClass']['name'], array('controller' => 'mpd_classes', 'action' => 'view', $project['MpdClass']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Presented'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['date_presented']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Patent Number'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $project['Project']['patent_number']; ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Project', true), array('action' => 'edit', $project['Project']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Project', true), array('action' => 'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projects', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Project', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Mpd Classes', true), array('controller' => 'mpd_classes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mpd Class', true), array('controller' => 'mpd_classes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Participants', true), array('controller' => 'participants', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Participant', true), array('controller' => 'participants', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Pictures', true), array('controller' => 'pictures', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Picture', true), array('controller' => 'pictures', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php __('Related Participants');?></h3>
-	<?php if (!empty($project['Participant'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Full Name'); ?></th>
-		<th><?php __('Email'); ?></th>
-		<th><?php __('Project Id'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($project['Participant'] as $participant):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $participant['id'];?></td>
-			<td><?php echo $participant['full_name'];?></td>
-			<td><?php echo $participant['email'];?></td>
-			<td><?php echo $participant['project_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'participants', 'action' => 'view', $participant['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'participants', 'action' => 'edit', $participant['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'participants', 'action' => 'delete', $participant['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $participant['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Participant', true), array('controller' => 'participants', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php __('Related Pictures');?></h3>
-	<?php if (!empty($project['Picture'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Url'); ?></th>
-		<th><?php __('Project Id'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($project['Picture'] as $picture):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $picture['id'];?></td>
-			<td><?php echo $picture['url'];?></td>
-			<td><?php echo $picture['project_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'pictures', 'action' => 'view', $picture['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'pictures', 'action' => 'edit', $picture['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'pictures', 'action' => 'delete', $picture['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $picture['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Picture', true), array('controller' => 'pictures', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
+<div id="templatemo_content">
+<h2><?php echo $project['Project']['title'];?></h2>
+  <div class="product_detail_left">
+    <div class="product_img_wrapper"><img src="<?php echo $project['Picture'][0]['url'];?>" alt="product" /></div>
+  <br />
+  <h3 style="color: rgb(0, 0, 0);">Product Description</h3>
+  <p id="product-description"><?php echo $project['Project']['product_description']; ?></p>
+  </div>
+  <div class="product_detail_right">
+  <h3>In This Project</h3>
+  <span style="font-weight: bold;">
+  <p style="font-weight: bold;">Person
+  A</p>
+  <p>Sponsered by p&amp;G</p>
+  <br />
+  <p style="font-weight: bold;">Person
+  B</p>
+  <p>Sponsered by p&amp;G</p>
+  </span>
+  <br />
+  <h3>More Pictures</h3>
+  <div> <a href="work_detail.html"><img
+  src="" alt="image" height="70" width="70" /></a>
+  <a href="work_detail.html"><img src="images/templatemo_image_04.jpg"
+   alt="image" height="70" width="70" /></a><a href="work_detail.html"><img
+   src="images/templatemo_image_05.jpg" alt="image" height="70" width="70" /></a><a
+   href="work_detail.html"><img src="images/templatemo_image_06.jpg"
+   alt="image" height="70" width="70" /></a><a href="work_detail.html"><img
+   src="images/templatemo_image_02.jpg" alt="image" height="70" width="70" /></a></div>
+  <br />
+  <h3>Details</h3>
+  <p>MPD8</p>
+  <p>Presented: <?php echo $project['Project']['date_presented'];?></p>
+  <p>Patent number: <?php echo $project['Project']['patent_number']; ?></p>
+  <br />
+  <h3>Is This Your Project?</h3>
+  <ul class="service_applied">
+  </ul>
+  <div class="button_01"><a href="loginPage.html" target="_parent">Click
+  here</a>to log in and edit the page
+  </div>
+  </div>
+<div class="cleaner"></div>
