@@ -3,16 +3,6 @@ class Project extends AppModel {
 	var $name = 'Project';
 	var $displayField = 'title';
 	var $validate = array(
-		'id' => array(
-			'n' => array(
-				'rule' => array('n'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -27,8 +17,8 @@ class Project extends AppModel {
 			'date' => array(
 				'rule' => array('date'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => false,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -37,8 +27,8 @@ class Project extends AppModel {
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => false,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
