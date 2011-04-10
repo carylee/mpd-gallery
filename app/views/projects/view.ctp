@@ -7,7 +7,7 @@
     <?php if (count($project['Picture']) < 1 ): ?>
       <img src="http://placekitten.com/500/300">
     <?php else: ?>
-      <img src="<?php echo $project['Picture'][0]['filename'];?>" alt="product" />
+      <?php echo $this->Html->image($project['Picture'][0]['filename'], array('alt'=>'product')); ?>
     <?php endif; ?>
     </div>
     <br />
