@@ -25,7 +25,10 @@
     <?php if(count($project['Picture']) > 0): ?>
       <div id="more-pictures"> 
       <?php foreach ($project['Picture'] as $picture): ?>
-        <a href="#"><img src="<?php echo $picture['filename']; ?>" alt="thumbnail" /></a>
+        <?php echo $this->Html->link(
+          $this->Html->image($picture['filename'], array('alt'=>'thumbnail')),
+          '#',
+          array('escape'=>false));?>
       <?php endforeach; ?>
       </div>
     <?php endif; ?>
