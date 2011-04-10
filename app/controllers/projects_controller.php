@@ -4,8 +4,9 @@ class ProjectsController extends AppController {
 	var $name = 'Projects';
 
 	function index() {
-		$this->Project->recursive = 0;
-		$this->set('projects', $this->paginate());
+		//$this->Project->recursive = 1;
+		//$this->set('projects', $this->paginate());
+    $this->set('projects', $this->Project->find('all', array('recursive'=>1,)));
 	}
 
 	function view($id = null) {
