@@ -18,7 +18,7 @@
     <h3>On This Project</h3>
     <?php foreach ($project['Participant'] as $participant): ;?>
       <p class="participant"><?php echo $participant['name']; ?></p>
-      <p>Sponsered by <?php echo $participant['company'];?></p>
+      <p>Sponsored by <?php echo $participant['company'];?></p>
       <br />
     <?php endforeach; ?>
     <h3>More Pictures</h3>
