@@ -299,6 +299,10 @@ h3 {
 	border: 1px solid #e0e0e0;
 	padding: 8px 7px;
 	margin-bottom: 10px;
+  overflow: hidden;
+}
+.product_box img {
+  height: 200px;
 }
 .image_box {
 float: left;
