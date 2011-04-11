@@ -2,9 +2,7 @@
 class ParticipantsController extends AppController {
 
 	var $name = 'Participants';
-	/************************Tina Added This Line*****************************************/
-    var $components = array('Email');
-	/*************************************************************************************/
+  var $components = array('Email');
 	function index() {
 		$this->Participant->recursive = 0;
 		$this->set('participants', $this->paginate());
@@ -123,28 +121,35 @@ class ParticipantsController extends AppController {
 		$this->Session->setFlash(__('Participant was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	/************************Tina Added From Here*******************************/
 	function email($id=null){
-	/   if (!$id) {
-			$this->Session->setFlash(__('Invalid id for participant', true));
-			$this->redirect(array('action'=>'index'));
+    if (!empty($this->data)) {
+      //pr($this->data);
+      $participant = $this->Participant->findById($id);
+      $this->Email->to = $participant['Participant']['email'];//Not sure how to get email of participant
+      $this->Email->subject = $this->data['Participant']['subject'];
+      $this->Email->replyTo = $this->data['Participant']['email'];
+      $this->Email->from = $this->data['Participant']['name'];
+      //$this->Email->delivery = 'debug';  // This is for message debugging
+      //Set the body of the mail as we send it. 
+      //Note: the text can be an array, each element will appear as a 
+      //seperate line in the message body. 
+      if ( $this->Email->send($this->data['Participant']['content']) ) { 
+        $this->Session->setFlash('Simple email sent'); 
+      } else { 
+        pr($this->Email);
+        $this->Session->setFlash('Simple email not sent'); 
+      } 
+      $this->redirect(array('controller'=>'projects', 'action'=>'index')); 
+    }
+    else if (!$id) {
+      $this->Session->setFlash(__('Invalid id for participant', true));
+      $this->redirect(array('action'=>'index'));
 		}    //Do we need to check first???????
-	    $this->Email->to = $Participant['id']['email'];//Not sure how to get email of participant
-        $this->Email->subject = $this->data['subject'];
-        $this->Email->replyTo = $this->data['email'];
-        $this->Email->from = $this->data['name']; 
-        //Set the body of the mail as we send it. 
-        //Note: the text can be an array, each element will appear as a 
-        //seperate line in the message body. 
-        if ( $this->Email->send($this->data['content']) ) { 
-            $this->Session->setFlash('Simple email sent'); 
-        } else { 
-            $this->Session->setFlash('Simple email not sent'); 
-        } 
-        $this->redirect('/'); 
-		
+    if (empty($this->data)) {
+      $participant = $this->Participant->read(null, $id);
+      $this->set('participant', $participant);
+    }
 	}
-     /**************************************************************************/
 	
 }
 ?>
