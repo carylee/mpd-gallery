@@ -7,7 +7,7 @@
     <?php if (count($project['Picture']) < 1 ): ?>
       <img src="http://placekitten.com/500/300">
     <?php else: ?>
-      <?php echo $this->Html->image($project['Picture'][0]['filename'], array('alt'=>'product')); ?>
+      <?php echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array('alt'=>'product')); ?>
     <?php endif; ?>
     </div>
     <br />
@@ -26,7 +26,7 @@
       <div id="more-pictures"> 
       <?php foreach ($project['Picture'] as $picture): ?>
         <?php echo $this->Html->link(
-          $this->Html->image($picture['filename'], array('alt'=>'thumbnail')),
+          $this->Html->image('projects/' . $picture['filename'], array('alt'=>'thumbnail')),
           '#',
           array('escape'=>false));?>
       <?php endforeach; ?>

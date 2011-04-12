@@ -9,7 +9,7 @@ foreach ($projects as $project):
 ?>
 <div class="product_box margin_r_10">
 <?php echo $this->Html->link(
-  $this->Html->image($project['Picture'][0]['filename'], array("alt"=>"photo")),
+  $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo")),
   array(
     'controller' => 'projects',
     'action' => 'view',
