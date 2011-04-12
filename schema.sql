@@ -13,6 +13,8 @@ CREATE TABLE projects (
   date_presented date,
   patent_number VARCHAR(12),
   status_id INT UNSIGNED,
+  created DATETIME DEFAULT NULL,
+  modified DATETIME DEFAULT NULL,
   FOREIGN KEY (status_id) REFERENCES statuses(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
@@ -20,6 +22,8 @@ CREATE TABLE pictures(
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   filename VARCHAR(50),
   project_id INT UNSIGNED,
+  created DATETIME DEFAULT NULL,
+  modified DATETIME DEFAULT NULL,
   FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
@@ -28,6 +32,8 @@ CREATE TABLE participants (
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   company VARCHAR(40),
+  created DATETIME DEFAULT NULL,
+  modified DATETIME DEFAULT NULL,
   project_id INT UNSIGNED,
   FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;

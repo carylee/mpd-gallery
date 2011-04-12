@@ -463,3 +463,7 @@ float: left;
   position: absolute;
   top: -25px;
 }
+
+div.product_img_wrapper img {
+  width: 580px;
+}
