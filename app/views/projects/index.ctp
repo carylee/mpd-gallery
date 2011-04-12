@@ -1,3 +1,4 @@
+<h1>MPD2 Product Gallery</h1>
 <?php
 $i = 0;
 foreach ($projects as $project):

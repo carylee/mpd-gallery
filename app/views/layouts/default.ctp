@@ -27,6 +27,7 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
+    echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');
 
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('main');
