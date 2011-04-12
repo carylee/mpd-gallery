@@ -1,9 +1,9 @@
 <div class="pictures form">
-<?php echo $this->Form->create('Picture');?>
+<?php echo $this->Form->create('Picture', array('enctype' => 'multipart/form-data'));?>
 	<fieldset>
 		<legend><?php __('Add Picture'); ?></legend>
 	<?php
-		echo $this->Form->input('filename');
+echo $this->Form->input('images', array('type' => 'file')); 
 		echo $this->Form->input('project_id');
 	?>
 	</fieldset>

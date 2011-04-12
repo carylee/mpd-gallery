@@ -2,6 +2,62 @@
 class PicturesController extends AppController {
 
 	var $name = 'Pictures';
+	//var $helpers = array('Html', 'Form');
+	var $components = array('Upload');
+
+
+	function add() {
+		if (!empty($this->data)) {
+                     $this->Picture->create();
+			if ($this->Picture->save($this->data)) {
+				$this->Session->setFlash(__('The picture has been saved', true));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true));
+			}
+		}
+		$projects = $this->Picture->Project->find('list');
+		$this->set(compact('projects'));
+	}
+
+       function upload() {
+
+		if (empty($this->data)) {
+			$this->render();
+		} else {
+			//$this->cleanUpFields();
+
+			// set the upload destination folder
+			$destination = realpath('../../app/webroot/img/') . '/';
+			// grab the file
+			$file = $this->data['Picture']['images'];
+
+			// upload the picture using the upload component
+			$result = $this->Upload->upload($file, $destination, null, array('type' => 'resizecrop', 
+					'size' => array('400', '300'), 'output' => 'jpg'));
+
+			if (!$result){
+				$this->data['Picture']['images'] = $this->Upload->result;
+			} else {
+				// display error
+				$errors = $this->Upload->errors;
+   
+				// piece together errors
+				if(is_array($errors)){ $errors = implode("<br />",$errors); }
+   
+					$this->Session->setFlash($errors);
+					$this->redirect('/pictures/upload');
+					exit();
+				}
+			if ($this->picture->save($this->data)) {
+				$this->Session->setFlash('picture has been added.');
+				$this->redirect('/pictures/index');
+			} else {
+				$this->Session->setFlash('Please correct errors below.');
+				unlink($destination.$this->Upload->result);
+			}
+		}
+	}
 
 	function index() {
 		$this->Picture->recursive = 0;
@@ -16,19 +72,7 @@ class PicturesController extends AppController {
 		$this->set('picture', $this->Picture->read(null, $id));
 	}
 
-	function add() {
-		if (!empty($this->data)) {
-			$this->Picture->create();
-			if ($this->Picture->save($this->data)) {
-				$this->Session->setFlash(__('The picture has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true));
-			}
-		}
-		$projects = $this->Picture->Project->find('list');
-		$this->set(compact('projects'));
-	}
+
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
