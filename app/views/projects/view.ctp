@@ -45,7 +45,7 @@
       <ul class="service_applied">
       </ul>
     <div class="button_01">
-      <a href="loginPage.html" target="_parent">Click here</a>to log in and edit the page
+    <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
     </div>
   </div>
   <div class="cleaner"></div>
