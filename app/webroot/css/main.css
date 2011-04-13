@@ -455,9 +455,10 @@ float: left;
   width: 600px;
 }
 
-#more-pictures img {
+img.project-thumbnail {
   height: 70px;
   width: 70px;
+  cursor: pointer;
 }
 #breadcrumbs {
   position: absolute;

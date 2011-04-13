@@ -8,19 +8,20 @@ class PicturesController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
-                     $this->Picture->create();
+      pr($this->data);
+      $this->Picture->create();
 			if ($this->Picture->save($this->data)) {
-				$this->Session->setFlash(__('The picture has been saved', true));
-				$this->redirect(array('action' => 'index'));
+        $this->Session->setFlash(__('The picture has been saved', true));
+        $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true));
+$this->Session->setFlash(__('The picture could not be saved. Please, try again.', true));
 			}
 		}
 		$projects = $this->Picture->Project->find('list');
 		$this->set(compact('projects'));
 	}
 
-       function upload() {
+ function upload() {
 
 		if (empty($this->data)) {
 			$this->render();
