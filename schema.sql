@@ -39,10 +39,10 @@ CREATE TABLE participants (
 ) ENGINE=InnoDB;
 
 CREATE TABLE users (
-  id integer auto_increment,
-  username char(50),
-  password char(40),
-  PRIMARY KEY (id)
+  id integer auto_increment PRIMARY KEY,
+  username char(50) UNIQUE,
+  password char(40) NOT NULL,
+  admin tinyint(1)
 ) ENGINE=InnoDB;
 
 

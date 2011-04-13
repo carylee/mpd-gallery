@@ -114,5 +114,9 @@ class ProjectsController extends AppController {
 		$this->Session->setFlash(__('Project was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+  function beforeFilter() {
+    $this->Auth->allow('index','view');
+  }
 }
 ?>

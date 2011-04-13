@@ -16,6 +16,11 @@
 			<?php echo $user['User']['password']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Admin'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $user['User']['admin']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

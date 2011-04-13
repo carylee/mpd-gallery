@@ -150,6 +150,10 @@ class ParticipantsController extends AppController {
       $this->set('participant', $participant);
     }
 	}
+
+  function beforeFilter() {
+    $this->Auth->allow('email');
+  }
 	
 }
 ?>

@@ -4,6 +4,13 @@ class UsersController extends AppController {
 	var $name = 'Users';
   var $components = array('Acl');
 
+  function login() {
+  }
+
+  function logout() {
+    $this->redirect($this->Auth->logout());
+  }
+
   function createAros() {
     $aro =& $this->Acl->Aro;
     
