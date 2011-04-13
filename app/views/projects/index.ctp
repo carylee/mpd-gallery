@@ -7,19 +7,16 @@ foreach ($projects as $project):
     $class = ' class="altrow"';
   }
 ?>
-<div class="product_box margin_r_10">
-<?php echo $this->Html->link(
-  $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo")),
-  array(
-    'controller' => 'projects',
-    'action' => 'view',
+  <a href="<?php echo $this->Html->url(array(
+    'controller'=>'projects',
+    'action'=>'view',
     $project['Project']['id'],
-  ),
-  array(
-    'escape'=> false
-  )); ?>
+  ));?>">
+<div class="product_box margin_r_10">
+<?php echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo")); ?>
 <h3><?php echo $project['Project']['title']; ?>&nbsp;</h3>
 <p><?php echo $project['Project']['date_presented']; ?>&nbsp;</p>
 </div>
+</a>
 
 <?php endforeach; ?>
