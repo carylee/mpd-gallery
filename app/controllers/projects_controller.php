@@ -35,7 +35,7 @@ class ProjectsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Project->save($this->data)) {
+			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -90,7 +90,7 @@ class ProjectsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Project->save($this->data)) {
+			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -101,6 +101,7 @@ class ProjectsController extends AppController {
 			$this->data = $this->Project->read(null, $id);
 		}
 	}
+
 
 	function admin_delete($id = null) {
 		if (!$id) {

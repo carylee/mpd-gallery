@@ -1,5 +1,5 @@
 <div class="projects form">
-<?php echo $this->Form->create('Project');?>
+<?php echo $this->Form->create('Project',array('url'=>array('action'=>'edit')));?>
 	<fieldset>
 		<legend><?php __('Edit Project'); ?></legend>
 	<?php
@@ -9,6 +9,16 @@
 		echo $this->Form->input('mpd_class');
 		echo $this->Form->input('date_presented');
 		echo $this->Form->input('patent_number');
+	?>
+	</fieldset>
+		<fieldset>
+		<legend><?php __('Add Pictures'); ?></legend>
+	<?php
+	    for ($j=0;$j<3;$j++)
+		{
+        echo $this->Form->input('Picture.'.$j.'.images', array('type' => 'file')); 
+	//	echo $this->Form->input('project_id');
+	     }
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
