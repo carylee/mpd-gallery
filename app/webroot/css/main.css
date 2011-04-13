@@ -474,3 +474,11 @@ img.email {
   margin-left: 5px;
   width: 15px;
 }
+
+p.mpd_class {
+  float: right;
+}
+
+p.presentation_date {
+  float: left;
+}
