@@ -22,7 +22,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+    MPDD Product Gallery
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
