@@ -298,8 +298,8 @@ h3 {
 	width: 212px;
 	background: #f1f1f1;
 	border: 1px solid #e0e0e0;
-	padding: 8px 7px;
-	margin-bottom: 10px;
+	padding: 8px;
+  margin: 10px;
   overflow: hidden;
 }
 .product_box img {
