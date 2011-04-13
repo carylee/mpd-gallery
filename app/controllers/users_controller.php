@@ -7,6 +7,12 @@ class UsersController extends AppController {
   function login() {
   }
 
+  function admin_login() {
+    if($this->Auth->user()) {
+      $this->redirect(array('controller'=>'users', 'action'=>'admin_index'));
+    }
+  }
+
   function logout() {
     $this->redirect($this->Auth->logout());
   }
