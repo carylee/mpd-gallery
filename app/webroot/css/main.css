@@ -468,3 +468,8 @@ img.project-thumbnail {
 div.product_img_wrapper img {
   width: 580px;
 }
+
+img.email {
+  margin-left: 5px;
+  width: 15px;
+}

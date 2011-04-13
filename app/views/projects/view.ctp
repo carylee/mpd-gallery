@@ -17,7 +17,10 @@
   <div class="product_detail_right">
     <h3>On This Project</h3>
     <?php foreach ($project['Participant'] as $participant): ;?>
-      <p class="participant"><?php echo $participant['name']; ?></p>
+  <p class="participant"><?php echo $participant['name'];
+  echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
+    array('controller'=>'participants','action'=>'email', $participant['id']),
+    array('escape'=>false));?></p>
       <p>Sponsored by <?php echo $participant['company'];?></p>
       <br />
     <?php endforeach; ?>
