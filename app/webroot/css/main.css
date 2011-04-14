@@ -489,10 +489,10 @@ div#user-status {
   margin-right: 20px;
 }
 
-#user-status p,a {
+#user-status p, #user-status a {
   color: rgba(200,200,200,0.8) !important;
 }
 
-#user-status a:hover, a:visited {
+#user-status a:hover, #user-status a:visited {
   color: rgba(200,200,200,1) !important;
 }
