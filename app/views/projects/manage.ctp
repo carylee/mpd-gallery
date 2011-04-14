@@ -17,7 +17,7 @@
 	?>
 	<tr<?php echo $class;?>>
     <td><?php echo $this->Html->link($project['Project']['title'], 
-                                     array('controller'=>'project','action'=>'view', $project['Project']['id']) 
+                                     array('controller'=>'projects','action'=>'view', $project['Project']['id']) 
                                      ); ?>&nbsp;</td>
 		<td><?php echo $project['Project']['mpd_class']; ?>&nbsp;</td>
 		<td><?php echo $project['Project']['date_presented']; ?>&nbsp;</td>
