@@ -12,7 +12,9 @@
     <fieldset>
       <legend><?php __('Pictures'); ?></legend>
       <?php
-        echo $this->Form->input('Picture.1.filename', array('type'=>'file'));
+        foreach( range(1,4) as $n ) {
+          echo $this->Form->input("Picture.$n.filename", array('type'=>'file', 'div' => 'project-picture'));
+        }
       ?>
     </fieldset>
 	</fieldset>
