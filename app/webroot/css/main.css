@@ -482,3 +482,17 @@ p.mpd_class {
 p.presentation_date {
   float: right;
 }
+
+div#user-status {
+  margin-top: 80px;
+  float: right;
+  margin-right: 20px;
+}
+
+#user-status p,a {
+  color: rgba(200,200,200,0.8) !important;
+}
+
+#user-status a:hover, a:visited {
+  color: rgba(200,200,200,1) !important;
+}

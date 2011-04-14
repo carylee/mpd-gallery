@@ -56,6 +56,14 @@
     <li><a href="#"><span>info</span></a></li>
   </ul>
   </div>
+<div id="user-status">
+  <?php if(isset($user)): ?>
+  <p>Logged in as <?php echo $user; ?> | <?php echo $this->Html->link('Manage', array('controller'=>'projects', 'action'=>'manage')); ?>
+ | <?php echo $this->Html->link('Log out', array('controller'=>'users','action'=>'logout')); ?>
+  <?php else: ?>
+  <p><?php echo $this->Html->link('Log in', array('controller'=>'users', 'action'=>'login')); ?></p>
+  <?php endif; ?>
+</div>
   <!-- end of templatemo_banner --></div>
   <!-- end of templatemo_banner_wrapper -->
   <div class="cleaner"></div>
@@ -68,12 +76,6 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
 		</div>
 	</div>
 <div id="templatemo_content_bottom"></div>

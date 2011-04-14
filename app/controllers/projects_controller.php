@@ -50,6 +50,7 @@ class ProjectsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
+      $this->set('project', $this->data);
 		}
 	}
 
