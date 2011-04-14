@@ -24,12 +24,15 @@ class PicturesController extends AppController {
  function add() {
 
 		if (empty($this->data)) {
+      $projects = $this->Picture->Project->find('list');
+      $this->set(compact('projects'));
 			$this->render();
 		} else {
 			//$this->cleanUpFields();
 
+      $this->Picture->create();
 			// set the upload destination folder
-			$destination = realpath('../../app/webroot/img/') . '/';
+			$destination = realpath('../../app/webroot/img/projects') . '/';
 			// grab the file
 			$file = $this->data['Picture']['images'];
 
@@ -38,7 +41,7 @@ class PicturesController extends AppController {
 					'size' => array('400', '300'), 'output' => 'jpg'));
 
 			if (!$result){
-				$this->data['Picture']['images'] = $this->Upload->result;
+				$this->data['Picture']['filename'] = $this->Upload->result;
 			} else {
 				// display error
 				$errors = $this->Upload->errors;
@@ -50,7 +53,8 @@ class PicturesController extends AppController {
 					$this->redirect('/pictures/upload');
 					exit();
 				}
-			if ($this->picture->save($this->data)) {
+			if ($this->Picture->save($this->data)) {
+        //pr($this->data);
 				$this->Session->setFlash('picture has been added.');
 				$this->redirect('/pictures/index');
 			} else {
