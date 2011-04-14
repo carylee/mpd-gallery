@@ -9,6 +9,14 @@
 		echo $this->Form->input('date_presented');
 		echo $this->Form->input('patent_number');
 	?>
+    <fieldset>
+      <legend><?php __('Pictures'); ?></legend>
+      <?php
+        foreach( range(1,4) as $n ) {
+          echo $this->Form->input("Picture.$n.filename", array('type'=>'file', 'div' => 'project-picture'));
+        }
+      ?>
+    </fieldset>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>

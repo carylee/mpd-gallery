@@ -15,8 +15,8 @@ foreach ($projects as $project):
 <div class="product_box margin_r_10">
 <?php echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo")); ?>
 <h3><?php echo $project['Project']['title']; ?>&nbsp;</h3>
-<p class='presentation_date'><?php echo $project['Project']['date_presented']; ?>&nbsp;</p>
 <p class='mpd_class'><?php echo $project['Project']['mpd_class']; ?></p>
+<p class='presentation_date'><?php echo $project['Project']['prettyDate']; ?>&nbsp;</p>
 </div>
 </a>
 
