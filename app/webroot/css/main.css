@@ -476,9 +476,9 @@ img.email {
 }
 
 p.mpd_class {
-  float: right;
+  float: left;
 }
 
 p.presentation_date {
-  float: left;
+  float: right;
 }

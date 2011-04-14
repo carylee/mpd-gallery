@@ -17,8 +17,7 @@
 	    for ($j=0;$j<3;$j++)
 		{
         echo $this->Form->input('Picture.'.$j.'.images', array('type' => 'file')); 
-	//	echo $this->Form->input('project_id');
-	     }
+    }
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
