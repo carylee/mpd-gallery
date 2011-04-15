@@ -12,11 +12,23 @@
 	?>
 	</fieldset>
 		<fieldset>
+		<legend><?php __('Edit Pictures'); ?></legend>
+	<?php $j=0;
+	     foreach ($project['Picture'] as $picture): $j++?>
+        <td><?php echo $this->Html->image('projects/' . $picture['filename']);?></td>
+		  <td class="actions">
+			<?php echo $this->Html->link(__('View', true), array('controller'->'pictures','action' => 'view', $picture['Picture']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit', true), array('controller'->'pictures','action' => 'edit', $picture['Picture']['id'])); ?>
+			<?php echo $this->Html->link(__('Delete', true), array('controller'->'pictures','action' => 'delete', $picture['Picture']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $picture['Picture']['id'])); ?>
+		</td>
+      <?php endforeach; ?>
+	  </fieldset>
+	  <fieldset>
 		<legend><?php __('Add Pictures'); ?></legend>
 	<?php
-	    for ($j=0;$j<3;$j++)
+	    for ($i=0;$i<(3-$j);$i++)
 		{
-        echo $this->Form->input('Picture.'.$j.'.images', array('type' => 'file')); 
+        echo $this->Form->input('Picture.'.$i.'.images', array('type' => 'file')); 
     }
 	?>
 	</fieldset>
