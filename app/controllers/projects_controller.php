@@ -92,9 +92,8 @@ class ProjectsController extends AppController {
 	}
 		function setCover($id=null,$picid=null)
 	{
-	    if ($id && $picorder)
-		{
-		    $this->Project->saveField('cover',$picid);
+	  
+		 if (   $this->Project->saveField('cover',$picid)){
 			$this->Session->setFlash(__('Project Cover Updated!', true));
 			$this->redirect(array('action'=>'edit',$id));
 		}

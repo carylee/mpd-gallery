@@ -16,8 +16,10 @@ foreach ($projects as $project):
 <?php
     if ($project['Project']['cover'])//project.cover is the id of cover pic
 	{
-	  $picture = $project['Picture']->findById($project['Project']['cover']); 
-	echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo"));
+	foreach ($project['Picture'] as $picture):
+	   if ($picture['id']==$project['Project']['cover'])
+	  //$picture = $this->Pictures->findById($project['Project']['cover']); 
+	echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo")); endforeach;
 	}else{
      echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo"));} ?>
 <h3><?php echo $project['Project']['title']; ?>&nbsp;</h3>
