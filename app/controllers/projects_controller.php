@@ -49,6 +49,7 @@ class ProjectsController extends AppController {
 			}
 		}
 		if (empty($this->data)) {
+      $this->Project->recursive = 1;
 			$this->data = $this->Project->read(null, $id);
       $this->set('project', $this->data);
 		}

@@ -496,3 +496,21 @@ div#user-status {
 #user-status a:hover, #user-status a:visited {
   color: rgba(200,200,200,1) !important;
 }
+
+div.project-picture-edit img {
+  display:block;
+  margin: 5px;
+  width: 150px;
+  max-height: 112px;
+}
+
+div.project-picture-edit {
+  border: 1px solid rgb(200,200,200);
+  padding: 10px;
+  margin-right: 10px;
+  float: left;
+  width: 160px;
+  height: 142px;
+  display: inline;
+  clear: none;
+}
