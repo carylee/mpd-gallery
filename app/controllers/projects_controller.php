@@ -35,17 +35,21 @@ class ProjectsController extends AppController {
 		}
 	}
 
+  function stripEmptyParticipants( &$data ) {
+    foreach($data['Participant'] as $index=>$participant) {
+      if($participant['name'] == "") {
+        unset($data['Participant'][$index]);
+      }
+    }
+  }
+
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-      foreach($this->data['Participant'] as $index=>$participant) {
-        if($participant['name'] == "") {
-          unset($this->data['Participant'][$index]);
-        }
-      }
+      $this->stripEmptyParticipants($this->data);
 			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -88,7 +92,8 @@ class ProjectsController extends AppController {
 	function admin_add() {
 		if (!empty($this->data)) {
 			$this->Project->create();
-			if ($this->Project->save($this->data)) {
+      $this->stripEmptyParticipants($this->data);
+			if ($this->Project->saveAll($this->data)) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
