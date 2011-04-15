@@ -41,6 +41,11 @@ class ProjectsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+      foreach($this->data['Participant'] as $index=>$participant) {
+        if($participant['name'] == "") {
+          unset($this->data['Participant'][$index]);
+        }
+      }
 			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));

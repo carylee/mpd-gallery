@@ -22,11 +22,34 @@
   </div>
   <?php endforeach; ?>
 	<?php
-    for ($j=0;$j<3;$j++) {
-      echo $this->Form->input('Picture.'.$j.'.images', array('type' => 'file')); 
-    }
+    echo $this->Form->input('Picture.0.filename', array('type'=>'file','label'=>'Add an image')); 
 	?>
 	</fieldset>
+<fieldset>
+  <legend><?php __('Participants');?></legend>
+  <?php foreach($project['Participant'] as $index=>$participant): ?>
+    <fieldset class='edit-participant'>
+<?php echo $this->Form->input("Participant.$index.name");
+      echo $this->Form->input("Participant.$index.email");
+      echo $this->Form->input("Participant.$index.company");
+      echo $this->Form->input("Participant.$index.id", array('type'=>'hidden'));
+?>
+  </fieldset>
+<?php endforeach; ?>
+  <?php 
+foreach(range(count($project['Participant']), count($project['Participant']) ) as $index): ?>
+  <fieldset class='edit-participant'>
+<?php
+      echo $this->Form->input("Participant.$index.name");
+      echo $this->Form->input("Participant.$index.email");
+      echo $this->Form->input("Participant.$index.company");
+?>
+  </fieldset>
+<?php endforeach; ?>
+  
+
+  
+</fieldset>
 <?php echo $this->Html->link('Cancel', array('action'=>'view', $project['Project']['id'])); ?>
 <?php echo $this->Form->end(__('Save', true));?>
 </div>
