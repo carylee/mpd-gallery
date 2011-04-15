@@ -52,7 +52,7 @@ class ProjectsController extends AppController {
       $this->stripEmptyParticipants($this->data);
 			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->data['Project']['id']));
 			} else {
 				$this->Session->setFlash(__('The project could not be saved. Please, try again.', true));
 			}
