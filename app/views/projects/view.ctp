@@ -14,6 +14,9 @@
     <h2><?php echo $project['Project']['title'];?></h2>
     <p id="product-description"><?php echo $project['Project']['description']; ?></p>
   </div>
+  <div>
+      <p> <?php echo $project['Project']['like'];?> people <?php $like = $project['Project']['like']; $like++; echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'],$like));?> this project.</p>
+  </div>
   <div class="product_detail_right">
     <h3>On This Project</h3>
     <?php foreach ($project['Participant'] as $participant): ;?>
@@ -48,11 +51,7 @@
       <ul class="service_applied">
       </ul>
     <div class="button_01">
-    <?php if ($user): ?>
-    <?php echo $this->Html->link('Edit this page', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
-    <?php else: ?>
-        <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
-    <?php endif; ?>
+    <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
     </div>
   </div>
   <div class="cleaner"></div>
