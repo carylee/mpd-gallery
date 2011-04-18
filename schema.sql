@@ -26,6 +26,9 @@ CREATE TABLE pictures(
   project_id INT UNSIGNED,
   created DATETIME DEFAULT NULL,
   modified DATETIME DEFAULT NULL,
+  dir varchar(255) default NULL,
+  mimetype varchar(255) NULL,
+  filesize int(11) unsigned default NULL,
   FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
