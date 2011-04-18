@@ -124,8 +124,8 @@ class ParticipantsController extends AppController {
 	function email($id=null){
     if (!empty($this->data)) {
       //pr($this->data);
-      $participant = $this->Participant->findById($id);
-      $this->Email->to = $participant['Participant']['email'];//Not sure how to get email of participant
+      $participant = $this->Participant->findById($this->data['Participant']['id']);
+      $this->Email->to = $participant['Participant']['email'];
       $this->Email->subject = $this->data['Participant']['subject'];
       $this->Email->replyTo = $this->data['Participant']['email'];
       $this->Email->from = $this->data['Participant']['name'];
@@ -136,7 +136,6 @@ class ParticipantsController extends AppController {
       if ( $this->Email->send($this->data['Participant']['content']) ) { 
         $this->Session->setFlash('Simple email sent'); 
       } else { 
-        pr($this->Email);
         $this->Session->setFlash('Simple email not sent'); 
       } 
       $this->redirect(array('controller'=>'projects', 'action'=>'index')); 
