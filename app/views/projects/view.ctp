@@ -14,19 +14,7 @@
     <h2><?php echo $project['Project']['title'];?></h2>
     <p id="product-description"><?php echo $project['Project']['description']; ?></p>
   </div>
-  <div>
-      <p> <?php echo $project['Project']['like'];?> people <?php $like = $project['Project']['like']; $like++; echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'],$like));?> this project.</p>
-  </div>
   <div class="product_detail_right">
-    <h3>On This Project</h3>
-    <?php foreach ($project['Participant'] as $participant): ;?>
-  <p class="participant"><?php echo $participant['name'];
-  echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
-    array('controller'=>'participants','action'=>'email', $participant['id']),
-    array('escape'=>false));?></p>
-      <p>Sponsored by <?php echo $participant['company'];?></p>
-      <br />
-    <?php endforeach; ?>
     <h3>More Pictures</h3>
     <?php if(count($project['Picture']) > 0): ?>
       <div id="more-pictures"> 
@@ -38,6 +26,19 @@
       </div>
     <?php endif; ?>
     <br />
+    <div id="likes">
+        <p> <?php echo $project['Project']['like'];?> people <?php $like = $project['Project']['like']; $like++; echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'],$like));?> this project.</p>
+    </div>
+    <br />
+    <h3>On This Project</h3>
+    <?php foreach ($project['Participant'] as $participant): ;?>
+  <p class="participant"><?php echo $participant['name'];
+  echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
+    array('controller'=>'participants','action'=>'email', $participant['id']),
+    array('escape'=>false));?></p>
+      <p>Sponsored by <?php echo $participant['company'];?></p>
+      <br />
+    <?php endforeach; ?>
     <h3>Details</h3>
     <p><?php echo $project['Project']['mpd_class'];?></p> <!-- MPD Class-->
     <?php if (isset($project['Project']['date_presented'])): ?>

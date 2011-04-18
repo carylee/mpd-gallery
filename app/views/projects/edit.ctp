@@ -15,13 +15,14 @@
 		<legend><?php __('Edit Pictures'); ?></legend>
 	<?php $j=0;
 	     foreach ($project['Picture'] as $picture): $j++?>
-            <tr><td><div class="product_box margin_r_10"><?php echo $this->Html->image('projects/' . $picture['filename']);?></div></td>
-		    <td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('controller'=>'pictures','action' => 'view', $picture['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('controller'=>'pictures','action' => 'edit', $picture['id'])); ?>
-            <?php echo $this->Html->link(__('Set as Cover',true),array('controller'=>'projects','action'=>'setCover',$project['Project']['id'],$picture['id']));?>
-			<?php echo $this->Html->link(__('Delete', true), array('controller'=>'pictures','action' => 'delete', $picture['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $picture['id'])); ?>
-		     </td></tr>
+          <div class="project-picture-edit">
+          <div class="margin_r_10"><?php echo $this->Html->image('projects/' . $picture['filename']);?></div>
+            <ul>
+              <li><?php echo $this->Html->link(__('Set as Cover',true),array('controller'=>'projects','action'=>'setCover',$project['Project']['id'],$picture['id']));?></li>
+              <li><?php echo $this->Html->link(__('Delete', true), array('controller'=>'pictures','action' => 'delete', $picture['id']), array('class'=>'delete-picture'));?></li>
+            </ul>
+          </div>
+		     
       <?php endforeach; ?>
 	  </fieldset>
 	  <fieldset>
