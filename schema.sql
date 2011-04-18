@@ -15,6 +15,8 @@ CREATE TABLE projects (
   status_id INT UNSIGNED,
   created DATETIME DEFAULT NULL,
   modified DATETIME DEFAULT NULL,
+  cover int(5) unsigned DEFAULT NULL,
+  like int(10) unsigned NOT NULL DEFAULT 0,
   FOREIGN KEY (status_id) REFERENCES statuses(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 

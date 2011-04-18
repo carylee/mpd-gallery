@@ -7,7 +7,7 @@ $(document).ready( function() {
     e.preventDefault();
     if(confirmDelete()) {
       $.get($(this).attr('href'));
-      $(this).parent('div').fadeOut();
+      $(this).parents('div.project-picture-edit').fadeOut();
     }
   });
 
