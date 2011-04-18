@@ -486,12 +486,17 @@ p.presentation_date {
 
 div#user-status {
   margin-top: 80px;
-  float: right;
   margin-right: 20px;
+  width: 100%;
 }
 
 #user-status p, #user-status a {
   color: rgba(200,200,200,0.8) !important;
+}
+
+#user-status p {
+  text-align: right;
+  margin-right: 10px;
 }
 
 #user-status a:hover, #user-status a:visited {
