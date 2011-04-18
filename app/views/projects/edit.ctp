@@ -1,5 +1,5 @@
 <div class="projects">
-<?php echo $this->Form->create('Project',array('url'=>array('action'=>'edit')));?>
+<?php echo $this->Form->create('Project',array('url'=>array('action'=>'edit'), 'type'=>'file'));?>
 	<fieldset>
 		<legend><?php __('Edit Project'); ?></legend>
 	<?php
@@ -30,7 +30,10 @@
 	<?php
 	    for ($i=0;$i<(4-$j);$i++)
 		{
-        echo $this->Form->input('Picture.'.$i.'.images', array('type' => 'file')); 
+        echo $this->Form->input('Picture.'.$i.'.filename', array('type' => 'file')); 
+        echo $this->Form->input('Picture.'.$i.'.dir', array('type' => 'hidden')); 
+        echo $this->Form->input('Picture.'.$i.'.mimetype', array('type' => 'hidden')); 
+        echo $this->Form->input('Picture.'.$i.'.filesize', array('type' => 'hidden')); 
     }
 	?>
 	</fieldset>

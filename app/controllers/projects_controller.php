@@ -44,6 +44,14 @@ class ProjectsController extends AppController {
     }
   }
 
+  function stripEmptyFiles( &$data ) {
+    foreach($data['Picture'] as $index=>$picture) {
+      if(!$picture['filename']) {
+        unset($data['Picture'][$index]);
+      }
+    }
+  }
+
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
@@ -51,6 +59,7 @@ class ProjectsController extends AppController {
 		}
 		if (!empty($this->data)) {
       $this->stripEmptyParticipants($this->data);
+      $this->stripEmptyFiles($this->data);
 			if ($this->Project->saveAll($this->data,array('validate'=>'first'))) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'view', $this->data['Project']['id']));
