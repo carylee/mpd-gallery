@@ -34,6 +34,28 @@
     }
 	?>
 	</fieldset>
+<fieldset>
+  <legend><?php __('Participants');?></legend>
+  <?php foreach($project['Participant'] as $index=>$participant): ?>
+    <fieldset class='edit-participant'>
+<?php echo $this->Form->input("Participant.$index.name");
+      echo $this->Form->input("Participant.$index.email");
+      echo $this->Form->input("Participant.$index.company");
+      echo $this->Form->input("Participant.$index.id", array('type'=>'hidden'));
+?>
+  </fieldset>
+<?php endforeach; ?>
+  <?php 
+foreach(range(count($project['Participant']), count($project['Participant']) ) as $index): ?>
+  <fieldset class='edit-participant'>
+<?php
+      echo $this->Form->input("Participant.$index.name");
+      echo $this->Form->input("Participant.$index.email");
+      echo $this->Form->input("Participant.$index.company");
+?>
+  </fieldset>
+<?php endforeach; ?>
+  
 <?php echo $this->Html->link('Cancel', array('action'=>'view', $project['Project']['id'])); ?>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
