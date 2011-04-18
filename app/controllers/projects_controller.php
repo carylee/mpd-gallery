@@ -104,8 +104,8 @@ class ProjectsController extends AppController {
 		}
 	}
 	
-	     	function like($id=null,$newlike=null)
-	{
+  function like($id=null,$newlike=null)
+    {
 	  /*  if (!$id || !$newlike)
 		{
 		     $this->Session->setFlash(__('sorry, please try again', true));
@@ -171,7 +171,7 @@ class ProjectsController extends AppController {
   }*/
 
   function beforeFilter() {
-    $this->Auth->allow('index','view');
+    $this->Auth->allow('index','view','like');
   }
 }
 ?>
