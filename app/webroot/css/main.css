@@ -355,6 +355,7 @@ float: left;
 .product_detail_left {
 	float: left;
   position: relative;
+  width: 600px;
 }
 
 .product_detail_left .product_img_wrapper {
@@ -501,7 +502,6 @@ div.project-picture-edit img {
   display:block;
   margin: 5px;
   width: 150px;
-  max-height: 112px;
 }
 
 div.project-picture-edit {
@@ -509,8 +509,8 @@ div.project-picture-edit {
   padding: 10px;
   margin-right: 10px;
   float: left;
-  width: 160px;
-  height: 142px;
+  width: 170px;
+  height: 200px;
   display: inline;
   clear: none;
 }
