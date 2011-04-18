@@ -103,6 +103,25 @@ class ProjectsController extends AppController {
 			 $this->redirect(array('action'=>'edit',$id));
 		}
 	}
+	
+	     	function like($id=null,$newlike=null)
+	{
+	  /*  if (!$id || !$newlike)
+		{
+		     $this->Session->setFlash(__('sorry, please try again', true));
+			 $this->redirect(array('action'=>'view',$id));
+		}*/
+		if ( $this->Project->saveField('like',$newlike))
+		{
+		     //$this->Session->setFlash(__('Thanks!', true));
+			 $this->redirect(array('action'=>'view',$id));
+		}
+		else
+		{
+		     $this->Session->setFlash(__('Sorry, try again', true));
+			 $this->redirect(array('action'=>'view',$id));
+		}
+	}
 
 	/*function setCover($id=null,$picorder=null)
 	{
