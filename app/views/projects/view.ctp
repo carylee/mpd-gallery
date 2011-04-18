@@ -36,7 +36,12 @@
   echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
     array('controller'=>'participants','action'=>'email', $participant['id']),
     array('escape'=>false));?></p>
+    <?php if($participant['company']): ?>
       <p>Sponsored by <?php echo $participant['company'];?></p>
+    <?php else: ?>
+      <p>Independant</p>
+    <?php endif; ?>
+
       <br />
     <?php endforeach; ?>
     <h3>Details</h3>
