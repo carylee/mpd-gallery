@@ -52,7 +52,11 @@
       <ul class="service_applied">
       </ul>
     <div class="button_01">
-    <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
+    <?php if ($user): ?>
+    <?php echo $this->Html->link('Edit this page', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
+    <?php else: ?>
+        <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
+    <?php endif; ?>
     </div>
   </div>
   <div class="cleaner"></div>
