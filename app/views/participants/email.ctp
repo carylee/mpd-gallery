@@ -3,10 +3,10 @@
 	<fieldset>
 		<legend><?php __('Email ' . $participant['Participant']['name']); ?></legend>
 	<?php
-		echo $this->Form->input('email');
+		echo $form->input('email', array('label' => 'your email address'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('subject');
-		echo $this->Form->input('content');
+		echo $this->Form->input('message',array('type' =>'textarea'));
     echo $this->Form->hidden('id', array('value'=>$participant['Participant']['id']));
 	?>
 	</fieldset>

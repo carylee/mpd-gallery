@@ -21,49 +21,6 @@ class PicturesController extends AppController {
 		$this->set(compact('projects'));
   }*/
 
- function add() {
-
-		if (empty($this->data)) {
-      $projects = $this->Picture->Project->find('list');
-      $this->set(compact('projects'));
-			$this->render();
-		} else {
-			//$this->cleanUpFields();
-
-      $this->Picture->create();
-			// set the upload destination folder
-			$destination = realpath('../../app/webroot/img/projects') . '/';
-			// grab the file
-			$file = $this->data['Picture']['images'];
-
-			// upload the picture using the upload component
-			$result = $this->Upload->upload($file, $destination, null, array('type' => 'resizecrop', 
-					'size' => array('400', '300'), 'output' => 'jpg'));
-
-			if (!$result){
-				$this->data['Picture']['filename'] = $this->Upload->result;
-			} else {
-				// display error
-				$errors = $this->Upload->errors;
-   
-				// piece together errors
-				if(is_array($errors)){ $errors = implode("<br />",$errors); }
-   
-					$this->Session->setFlash($errors);
-					$this->redirect('/pictures/upload');
-					exit();
-				}
-			if ($this->Picture->save($this->data)) {
-        //pr($this->data);
-				$this->Session->setFlash('picture has been added.');
-				$this->redirect('/pictures/index');
-			} else {
-				$this->Session->setFlash('Please correct errors below.');
-				unlink($destination.$this->Upload->result);
-			}
-		}
-	}
-
 	function index() {
 		$this->Picture->recursive = 0;
 		$this->set('pictures', $this->paginate());
@@ -124,7 +81,7 @@ class PicturesController extends AppController {
 		$this->set('picture', $this->Picture->read(null, $id));
 	}
 
-	function add2() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Picture->create();
 			if ($this->Picture->save($this->data)) {

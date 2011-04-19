@@ -26,6 +26,9 @@ class ProjectsController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Project->create();
+      $this->stripEmptyParticipants($this->data);
+      $this->stripEmptyFiles($this->data);
+      //pr($this->data);
 			if ($this->Project->saveAll($this->data)) {
 				$this->Session->setFlash(__('The project has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -37,17 +40,21 @@ class ProjectsController extends AppController {
 
   
   function stripEmptyParticipants( &$data ) {
-    foreach($data['Participant'] as $index=>$participant) {
-      if($participant['name'] == "") {
-        unset($data['Participant'][$index]);
+    if(isset($data['Participant'])) {
+      foreach($data['Participant'] as $index=>$participant) {
+        if($participant['name'] == "") {
+          unset($data['Participant'][$index]);
+        }
       }
     }
   }
 
   function stripEmptyFiles( &$data ) {
-    foreach($data['Picture'] as $index=>$picture) {
-      if(!$picture['filename']) {
-        unset($data['Picture'][$index]);
+    if(isset($data['Picture'])) {
+      foreach($data['Picture'] as $index=>$picture) {
+        if(!$picture['filename']['name']) {
+          unset($data['Picture'][$index]);
+        }
       }
     }
   }

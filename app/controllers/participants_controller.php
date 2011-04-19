@@ -133,7 +133,7 @@ class ParticipantsController extends AppController {
       //Set the body of the mail as we send it. 
       //Note: the text can be an array, each element will appear as a 
       //seperate line in the message body. 
-      if ( $this->Email->send($this->data['Participant']['content']) ) { 
+      if ( $this->Email->send($this->data['Participant']['message']) ) { 
         $this->Session->setFlash('Simple email sent'); 
       } else { 
         $this->Session->setFlash('Simple email not sent'); 
