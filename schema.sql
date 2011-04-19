@@ -16,7 +16,7 @@ CREATE TABLE projects (
   created DATETIME DEFAULT NULL,
   modified DATETIME DEFAULT NULL,
   cover int(5) unsigned DEFAULT NULL,
-  like int(10) unsigned NOT NULL DEFAULT 0,
+  `like` int(10) unsigned NOT NULL DEFAULT 0,
   FOREIGN KEY (status_id) REFERENCES statuses(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
@@ -50,10 +50,11 @@ CREATE TABLE users (
   admin tinyint(1)
 ) ENGINE=InnoDB;
 
+-- ------------------------------------------------------
 
----
+--
 -- These ACL tables should be refactored out
----
+--
 
 
 DROP TABLE IF EXISTS `acos`;
