@@ -15,12 +15,12 @@ $(document).ready( function() {
     var del = confirm("Are you sure you want to delete this picture?");
     return del;
   }
-  var incrementString = function(string){
-    return string.replace(/\d+$/, function(n){ return ++n });
+  var incrementString = function(name){
+    return name.replace(/\d+$/, function(n){ return ++n });
   }
 
   var makeAnotherParticipant = function(){
-    var participant = $("fieldset.edit-participant").clone();
+    var participant = $("fieldset.edit-participant:last").clone();
     //var label = $(participant).children('label').attr('for');
     var name = $(participant).children('input').attr('name');
     var id = $(participant).children('input').attr('id');
@@ -28,7 +28,12 @@ $(document).ready( function() {
     id = incrementString(id);
     alert(name);
   }
-  //makeAnotherParticipant();
+  makeAnotherParticipant();
+
+  $("#add-participant").click( function(e){ 
+      e.preventDefault();
+      makeAnotherParticipant(); 
+      });
 
 
 });

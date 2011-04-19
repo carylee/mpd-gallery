@@ -28,13 +28,12 @@
 	  <fieldset>
 		<legend><?php __('Add Pictures'); ?></legend>
 	<?php
-	    for ($i=0;$i<(4-$j);$i++)
-		{
+	    for ($i=0;$i<(4-$j);$i++) {
         echo $this->Form->input('Picture.'.$i.'.filename', array('type' => 'file')); 
         echo $this->Form->input('Picture.'.$i.'.dir', array('type' => 'hidden')); 
         echo $this->Form->input('Picture.'.$i.'.mimetype', array('type' => 'hidden')); 
         echo $this->Form->input('Picture.'.$i.'.filesize', array('type' => 'hidden')); 
-    }
+      }
 	?>
 	</fieldset>
 <fieldset>
