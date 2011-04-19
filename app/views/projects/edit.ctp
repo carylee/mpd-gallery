@@ -27,16 +27,20 @@
 	  </fieldset>
 	  <fieldset>
 		<legend><?php __('Add Pictures'); ?></legend>
-	<?php
-	    for ($i=0;$i<(4-$j);$i++) {
-        echo $this->Form->input('Picture.'.$i.'.filename', array('type' => 'file')); 
-        echo $this->Form->input('Picture.'.$i.'.dir', array('type' => 'hidden')); 
-        echo $this->Form->input('Picture.'.$i.'.mimetype', array('type' => 'hidden')); 
-        echo $this->Form->input('Picture.'.$i.'.filesize', array('type' => 'hidden')); 
-      }
-	?>
+      <div id="pictures">
+        <div class="add-picture">
+          <?php
+            echo $this->Form->input('Picture.0.filename', array('type' => 'file')); 
+            echo $this->Form->input('Picture.0.dir', array('type' => 'hidden')); 
+            echo $this->Form->input('Picture.0.mimetype', array('type' => 'hidden')); 
+            echo $this->Form->input('Picture.0.filesize', array('type' => 'hidden')); 
+          ?>
+        </div>
+      </div>
+      <button id="add-picture-field">Add another?</button>
 	</fieldset>
 <fieldset>
+<div id="participants">
   <legend><?php __('Participants');?></legend>
   <?php foreach($project['Participant'] as $index=>$participant): ?>
     <fieldset class='edit-participant'>
@@ -47,16 +51,9 @@
 ?>
   </fieldset>
 <?php endforeach; ?>
-  <?php 
-foreach(range(count($project['Participant']), count($project['Participant']) ) as $index): ?>
-  <fieldset class='edit-participant'>
-<?php
-      echo $this->Form->input("Participant.$index.name");
-      echo $this->Form->input("Participant.$index.email");
-      echo $this->Form->input("Participant.$index.company");
-?>
-  </fieldset>
-<?php endforeach; ?>
+</div>
+<button id="add-participant-field">Add another?</button>
+</fieldset>
   
 <?php echo $this->Html->link('Cancel', array('action'=>'view', $project['Project']['id'])); ?>
 <?php echo $this->Form->end(__('Submit', true));?>

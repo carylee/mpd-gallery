@@ -11,23 +11,28 @@
 	?>
     <fieldset>
       <legend><?php __('Pictures'); ?></legend>
-      <?php
-        foreach( range(1,4) as $n ) {
-          echo $this->Form->input("Picture.$n.filename", array('type'=>'file', 'div' => 'project-picture'));
-          echo $this->Form->input("Picture.$n.mimetype", array('type'=>'hidden'));
-          echo $this->Form->input("Picture.$n.filesize", array('type'=>'hidden'));
-          echo $this->Form->input("Picture.$n.dir", array('type'=>'hidden'));
-        }
-      ?>
+      <div id="pictures">
+        <div class="add-picture">
+          <?php
+            echo $this->Form->input("Picture.0.filename", array('type'=>'file', 'div' => 'project-picture'));
+            echo $this->Form->input("Picture.0.mimetype", array('type'=>'hidden'));
+            echo $this->Form->input("Picture.0.filesize", array('type'=>'hidden'));
+            echo $this->Form->input("Picture.0.dir", array('type'=>'hidden'));
+          ?>
+        </div>
+      </div>
+      <button id="add-picture-field">Add another?</button>
     </fieldset>
     <fieldset>
       <legend>Participants</legend>
+      <div id="participants">
       <fieldset class="edit-participant">
-          <?php echo $this->Form->input("Participant.1.name");
-            echo $this->Form->input("Participant.1.email");
-            echo $this->Form->input("Participant.1.company");?>
+          <?php echo $this->Form->input("Participant.0.name");
+            echo $this->Form->input("Participant.0.email");
+            echo $this->Form->input("Participant.0.company");?>
       </fieldset>
-      <button id="add-participant">Add another</button>
+      </div>
+      <button id="add-participant-field">Add another?</button>
     </fieldset>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

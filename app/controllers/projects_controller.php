@@ -59,6 +59,16 @@ class ProjectsController extends AppController {
     }
   }
 
+  function addFile($number = null) {
+    $this->layout = 'ajax';
+    $this->set('number', $number);
+  }
+
+  function addParticipant($number = 0) {
+    $this->layout = 'ajax';
+    $this->set('number', $number);
+  }
+
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid project', true));
