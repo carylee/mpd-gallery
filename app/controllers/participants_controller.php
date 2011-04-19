@@ -125,9 +125,9 @@ class ParticipantsController extends AppController {
     if (!empty($this->data)) {
       //pr($this->data);
       $participant = $this->Participant->findById($this->data['Participant']['id']);
-      $this->Email->to = $participant['Participant']['your email address'];
+      $this->Email->to = $participant['Participant']['email'];
       $this->Email->subject = $this->data['Participant']['subject'];
-      $this->Email->replyTo = $this->data['Participant']['your email address'];
+      $this->Email->replyTo = $this->data['Participant']['email'];
       $this->Email->from = $this->data['Participant']['name'];
       //$this->Email->delivery = 'debug';  // This is for message debugging
       //Set the body of the mail as we send it. 

@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php __('Email ' . $participant['Participant']['name']); ?></legend>
 	<?php
-		echo $this->Form->input('your email address');
+		echo $form->input('email', array('label' => 'your email address'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('subject');
 		echo $this->Form->input('message',array('type' =>'textarea'));
