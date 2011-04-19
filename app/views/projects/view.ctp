@@ -58,7 +58,7 @@
       </ul>
     <div class="button_01">
     <?php if ($user): ?>
-    <?php echo $this->Html->link('Edit this page', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
+    <?php echo $this->Html->link('Edit project', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
     <?php else: ?>
         <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
     <?php endif; ?>

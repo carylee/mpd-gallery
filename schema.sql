@@ -51,37 +51,10 @@ CREATE TABLE users (
 ) ENGINE=InnoDB;
 
 
--- Create statuses
-INSERT INTO statuses VALUES(1, 'Active');
-INSERT INTO statuses VALUES(2, 'Inactive');
+---
+-- These ACL tables should be refactored out
+---
 
---
--- Dumping data for table 'projects'
---
-
-INSERT INTO projects VALUES(1, 'Banana Peeler', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'MPD9', '2011-04-07', '0123456789', 1, NULL, NULL);
-INSERT INTO projects VALUES(2, 'Better Banana Peeler', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'MPD9', '2011-04-07', '1341h1313', 1, NULL, NULL);
-
--- Create participants
-INSERT INTO participants VALUES(1, 'Cary Lee', 'carylee@gmail.com', 'Motorola', NULL, NULL, 2);
-INSERT INTO participants VALUES(2, 'Bob Cowles', 'bobcowels@fl.gov', 'ZS Associates', NULL, NULL, 1);
-
---
--- Dumping data for table 'pictures'
---
-
-INSERT INTO pictures VALUES(1, 'city.jpg', 1, NULL, NULL);
-INSERT INTO pictures VALUES(2, 'city.jpg', 2, NULL, NULL);
-INSERT INTO pictures VALUES(3, 'cactus.jpg', 1, NULL, NULL);
-INSERT INTO pictures VALUES(4, 'camera.jpg', 1, NULL, NULL);
-
-
----- This is for access control. It isn't totally implemented, but needed
--- --------------------------------------------------------
-
---
--- Table structure for table `acos`
---
 
 DROP TABLE IF EXISTS `acos`;
 CREATE TABLE `acos` (
@@ -117,14 +90,6 @@ CREATE TABLE `aros` (
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `aros`
---
-
-INSERT INTO `aros` VALUES(1, NULL, NULL, NULL, 'admins', 1, 2);
-INSERT INTO `aros` VALUES(2, NULL, NULL, NULL, 'students', 3, 4);
-INSERT INTO `aros` VALUES(3, NULL, NULL, NULL, 'visitors', 5, 6);
 
 -- --------------------------------------------------------
 
