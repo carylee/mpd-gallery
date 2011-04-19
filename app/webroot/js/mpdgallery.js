@@ -15,25 +15,25 @@ $(document).ready( function() {
     var del = confirm("Are you sure you want to delete this picture?");
     return del;
   }
-  var incrementString = function(name){
-    return name.replace(/\d+$/, function(n){ return ++n });
-  }
 
-  var makeAnotherParticipant = function(){
-    var participant = $("fieldset.edit-participant:last").clone();
-    //var label = $(participant).children('label').attr('for');
-    var name = $(participant).children('input').attr('name');
-    var id = $(participant).children('input').attr('id');
-    name = incrementString(name);
-    id = incrementString(id);
-    alert(name);
-  }
-  makeAnotherParticipant();
+  $("#add-participant-field").click(function(e){
+    e.preventDefault();
+    var num = $("#participants fieldset").length;
+    var url = "/projects/addParticipant/" + num;
+    $("<div>").load(url, function() {
+      $("#participants").append($(this).html());
+    });
+  });
 
-  $("#add-participant").click( function(e){ 
-      e.preventDefault();
-      makeAnotherParticipant(); 
-      });
+  $("#add-picture-field").click(function(e){
+    e.preventDefault();
+    var num = $("#pictures div.add-picture").length;
+    var url = "/projects/addFile/" + num;
+    $("<div>").load(url, function(){
+      $("#pictures").append($(this).html());
+    });
+  });
 
 
+  
 });

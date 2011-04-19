@@ -93,32 +93,37 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	
 	function changePassword($id=null) { 
-                if (empty($this->data)) { 
-                    $this->data = $this->User->findById($id); 
-                   } 
-                else { 
-                 	$this->User->id = $this->Session->read('user_id'); 
-                    $uid = $this->User->findById($this->User->id); 
-                    if($this->data['User']['old_password']!= $uid['User']['password']) 
+                if (!$id && empty($this->data)) {
+			        $this->Session->setFlash(__('Invalid user', true));
+			        $this->redirect(array('action' => 'index'));
+	            	}
+                if (!empty($this->data)) { 
+                // 	$this->User->id = $this->Session->read('user_id'); 
+                   $user = $this->User->findById($id); 
+                   if( (($this->data['User']['password']) )!= $user['User']['password']) 
                         { 
                             $this->Session->setFlash(__("Your old Password field didn't match",true)); 
                         } 
-                        else if($this->data['User']['new_password'] != $this->data['User'] ['confirm_password'] )
+                       else if($this->data['User']['new_password'] !=($this->data['User'] ['confirm_password'] ))
 						{ 
                             $this->Session->setFlash(__("new passwords don't match. Please, try again.", true)); 
                         } 
                         else 
 						{ 
-                            $this->data['User']['password'] = $this->data['User']['new_password']; 
-                            $this->data['User']['id'] = $this->User->id; 
-                            if($this->User->save($this->data)) { 
+						    $this->data['User']['password'] = $this->Auth->password($this->data['User']['new_password']); 
+						 
+                          if($this->User->save($this->data)) { 
                                    $this->Session->setFlash("Password updated"); 
                                    $this->redirect(array('action' => 'index'));
                                 } 
                         } 
-                 } 
-        } 
+                 }
+				 if (empty($this->data)) {
+			$this->data = $this->User->read(null, $id);
+		}
+               				 
+        }
+
 }
 ?>
