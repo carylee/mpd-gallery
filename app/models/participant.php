@@ -4,7 +4,7 @@ class Participant extends AppModel {
 	var $displayField = 'name';
 	var $validate = array(
 		'email' => array(
-			'email' => array(
+			'your email address' => array(
 				'rule' => array('email'),
 				//'message' => 'Your custom message here',
 				'allowEmpty' => true,
