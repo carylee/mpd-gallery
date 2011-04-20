@@ -26,7 +26,7 @@
       <?php endforeach; ?>
 	  </fieldset>
 	  <fieldset>
-		<legend><?php __('Add Pictures'); ?></legend>
+		<legend><?php __('Add Pictures'); ?></legend><div style= "font-size:15px;color:red"> * Note: only .jpg .jnp .gif  files within 2MB are allowed! </div>
       <div id="pictures">
         <div class="add-picture">
           <?php

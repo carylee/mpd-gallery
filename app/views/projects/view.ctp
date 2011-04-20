@@ -15,7 +15,7 @@
 	echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo")); endforeach;
 	}else{
      echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo"));} ?>
-      <?php //echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array('alt'=>'product')); ?>
+   
     <?php endif; ?>
     </div>
     <br />
