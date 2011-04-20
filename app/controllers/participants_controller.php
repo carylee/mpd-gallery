@@ -138,7 +138,7 @@ class ParticipantsController extends AppController {
       } else { 
         $this->Session->setFlash('Simple email not sent'); 
       } 
-      $this->redirect(array('controller'=>'projects', 'action'=>'index')); 
+      $this->redirect(array('controller'=>'projects', 'action'=>'view',$participant['Project']['id'])); 
     }
     else if (!$id) {
       $this->Session->setFlash(__('Invalid id for participant', true));
