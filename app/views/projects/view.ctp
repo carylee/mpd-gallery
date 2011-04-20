@@ -6,8 +6,16 @@
     <div class="product_img_wrapper">
     <?php if (count($project['Picture']) < 1 ): ?>
       <img src="http://placekitten.com/500/300">
-    <?php else: ?>
-      <?php echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array('alt'=>'product')); ?>
+    <?php else: 
+	if ($project['Project']['cover'])//project.cover is the id of cover pic
+	{
+	foreach ($project['Picture'] as $picture):
+	   if ($picture['id']==$project['Project']['cover'])
+	  //$picture = $this->Pictures->findById($project['Project']['cover']); 
+	echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo")); endforeach;
+	}else{
+     echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo"));} ?>
+      <?php// echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array('alt'=>'product')); ?>
     <?php endif; ?>
     </div>
     <br />
@@ -30,7 +38,11 @@
         <p> <?php echo $project['Project']['like'];?> people <?php $like = $project['Project']['like']; $like++; echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'],$like));?> this project.</p>
     </div>
     <br />
-    <h3>On This Project</h3>
+    <h3>On This Project 
+	<?php //$this->Html->link('send group email',array('controller'=>'projects','action'=>'groupemail',$project['Project']['id']))?>
+	<?php echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
+    array('controller'=>'projects','action'=>'groupemail', $project['Project']['id']),
+    array('escape'=>false));?></h3>
     <?php foreach ($project['Participant'] as $participant): ;?>
   <p class="participant"><?php echo $participant['name'];
   echo $this->Html->link($this->Html->image('email.png', array('class'=>'email')),
@@ -58,7 +70,7 @@
       </ul>
     <div class="button_01">
     <?php if ($user): ?>
-    <?php echo $this->Html->link('Edit project', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
+    <?php echo $this->Html->link('Edit this page', array('controller'=>'projects', 'action'=>'edit', $project['Project']['id']));?>
     <?php else: ?>
         <?php echo $this->Html->link('Click here', array('controller'=>'users', 'action'=>'login'));?> to log in and edit the page
     <?php endif; ?>
