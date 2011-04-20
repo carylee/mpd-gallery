@@ -141,13 +141,19 @@ class ProjectsController extends AppController {
 		}
 	}
 	
-  function like($id=null,$newlike=null)
+  function like($id=null)
     {
 	  /*  if (!$id || !$newlike)
 		{
 		     $this->Session->setFlash(__('sorry, please try again', true));
 			 $this->redirect(array('action'=>'view',$id));
 		}*/
+    if(isset($id)) {
+      $project = $this->Project->findById($id);
+      $likes = $project['Project']['like'];
+      $newlike = $likes + 1;
+    }
+
 		if ( $this->Project->saveField('like',$newlike))
 		{
 		     //$this->Session->setFlash(__('Thanks!', true));
