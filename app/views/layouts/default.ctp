@@ -44,16 +44,16 @@
   <div id="templatemo_banner_wrapper">
   <div id="templatemo_menu">
   <ul>
-  <!-- class="current"--> <li><a href="#"><span>MPD2</span></a></li>
-    <li><a href="#"><span>events
+  <!-- class="current"--> <li><a href="http://www.mpd.northwestern.edu/"><span>MPD2</span></a></li>
+    <li><a href="http://www.mpd.northwestern.edu/nes/upcoming_events.php"><span>events
   news seminars</span></a></li>
-    <li><a href="#"><span>curriculum</span></a></li>
-    <li><a href="#"><span>master's
+    <li><a href="http://www.mpd.northwestern.edu/curriculum/overview.php"><span>curriculum</span></a></li>
+    <li><a href="http://www.mpd.northwestern.edu/mastersprogram/admission.php"><span>master's
   program</span></a></li>
-    <li><a href="#"><span>students+alumni</span></a></li>
-    <li><a href="#"><span>executive
+    <li><a href="http://www.mpd.northwestern.edu/students/current_students.php"><span>students+alumni</span></a></li>
+    <li><a href="http://www.mpd.northwestern.edu/executive/overview.php"><span>executive
   education</span></a></li>
-    <li><a href="#"><span>info</span></a></li>
+    <li><a href="http://www.mpd.northwestern.edu/faq/contact.php"><span>info</span></a></li>
   </ul>
   </div>
 <div id="user-status">
