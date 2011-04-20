@@ -12,8 +12,11 @@
 	?>
 	</fieldset>
 		<fieldset>
-		<legend><?php __('Edit Pictures'); ?></legend>
-	<?php $j=0;
+		<legend><?php __('Edit Pictures');$j=0 ?></legend>
+		  <?php if (count($project['Picture']) < 1 ): ?>
+		  <div>No image. </div>
+	<?php else:
+	// $j=0;
 	     foreach ($project['Picture'] as $picture): $j++?>
           <div class="project-picture-edit">
           <div class="margin_r_10"><?php echo $this->Html->image('projects/' . $picture['filename']);?></div>
@@ -24,6 +27,7 @@
           </div>
 		     
       <?php endforeach; ?>
+	  <?php endif;?>
 	  </fieldset>
 	  <fieldset>
 		<legend><?php __('Add Pictures'); ?></legend><div style= "font-size:15px;color:red"> * Note: only .jpg .jnp .gif  files within 2MB are allowed! </div>
