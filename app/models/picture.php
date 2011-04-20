@@ -7,7 +7,7 @@ class Picture extends AppModel {
   var $actsAs = array(
     'MeioUpload.MeioUpload' => array('filename'=>array(
         'dir'=>'img/projects/',
-        'allowed_mime'=> array('image/jpeg', 'image/pjpeg', 'image/png');
+        'allowed_mime'=> array('image/jpeg', 'image/pjpeg', 'image/png'),
         'allowed_ext'=>array('.jpg', '.jpeg', '.png'),
       ),
     ),
