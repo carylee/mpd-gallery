@@ -35,11 +35,7 @@
     <?php endif; ?>
     <br />
     <div id="likes">
-        <p><span id="like-count"><?php echo $project['Project']['like'];?></span> people 
-        <?php $like = $project['Project']['like']; 
-              $like++; 
-              echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'], $like), array('id'=>'like'));?>
-         this project.</p>
+        <p> <?php echo $project['Project']['like'];?> people <?php $like = $project['Project']['like']; $like++; echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'],$like));?> this project.</p>
     </div>
     <br />
     <h3>On This Project 
