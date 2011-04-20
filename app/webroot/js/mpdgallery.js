@@ -34,6 +34,15 @@ $(document).ready( function() {
     });
   });
 
+  $("#like").click(function(e){
+    e.preventDefault();
+    $.get($(this).attr('href'));
+    $("#like-count").fadeOut( function() {
+      $(this).text($(this).text()*1+1);
+      $(this).fadeIn();
+    });
+  });
+
 
   
 });

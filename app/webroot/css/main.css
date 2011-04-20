@@ -519,3 +519,7 @@ div.project-picture-edit {
   display: inline;
   clear: none;
 }
+
+span.recipient-name {
+  font-style: italic;
+}
