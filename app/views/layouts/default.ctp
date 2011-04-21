@@ -56,6 +56,8 @@
     <li><a href="http://www.mpd.northwestern.edu/faq/contact.php"><span>info</span></a></li>
   </ul>
   </div>
+  <br>
+  <br>
 <div id="user-status">
   <?php if(isset($user)): ?>
   <p>Logged in as <?php echo $user; ?> | <?php echo $this->Html->link('Manage', array('controller'=>'projects', 'action'=>'manage')); ?>
