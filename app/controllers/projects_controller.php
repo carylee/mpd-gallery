@@ -7,7 +7,10 @@ class ProjectsController extends AppController {
     date_default_timezone_set('America/Chicago');
 		//$this->Project->recursive = 1;
 		//$this->set('projects', $this->paginate());
-    $projects = $this->Project->find('all', array('recursive'=>1));
+    $projects = $this->Project->find('all', array(
+      'recursive'=>1,
+      'order'=>array('Project.date_presented DESC'),
+    ));
     foreach($projects as $index=>$project) {
       $timestamp = strtotime($project['Project']['date_presented']);
       $projects[$index]['Project']['prettyDate'] = date('F jS, Y', $timestamp);
