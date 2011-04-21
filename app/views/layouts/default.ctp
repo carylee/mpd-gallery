@@ -46,7 +46,7 @@
   <ul>
   <!-- class="current"--> <li><a href="http://www.mpd.northwestern.edu/"><span>MPD2</span></a></li>
     <li><a href="http://www.mpd.northwestern.edu/nes/upcoming_events.php"><span>events
-  news seminars</span></a></li>
+ </span></a></li>
     <li><a href="http://www.mpd.northwestern.edu/curriculum/overview.php"><span>curriculum</span></a></li>
     <li><a href="http://www.mpd.northwestern.edu/mastersprogram/admission.php"><span>master's
   program</span></a></li>

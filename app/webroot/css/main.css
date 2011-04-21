@@ -155,8 +155,10 @@ h3 {
 
 #templatemo_menu ul {
 	margin: 0px;
+  margin-left: 200px;
 	padding: 13px 0 0 20px;
 	list-style: none;
+  height: 10px;
 }
 
 #templatemo_menu ul li {
@@ -166,13 +168,13 @@ h3 {
 }
 
 #templatemo_menu ul li a {
-	float: right;
-	display: block;
+	display: inline;
 	height: 22px;
-	padding: 3px 10px 0 5px;
+	/*padding: 0px 10px 0 5px;*/
+  padding: 0px;
 	margin: 0 10px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 	text-decoration: none;
 	color: rgba(0,0,0,0.7);
 	font-weight: bold;
@@ -195,7 +197,7 @@ h3 {
 	height: 150px;
   overflow: hidden;
 	margin: 0 auto;	
-	background: #000000 url(../img/FotoFlexer_Photo9.jpg) no-repeat center top;
+	background: white url(../img/McCormickLogoHeader.jpg) no-repeat left top;
 }
 
 #templatemo_banner {
@@ -485,7 +487,7 @@ p.presentation_date {
 }
 
 div#user-status {
-  margin-top: 80px;
+  margin-top: 70px;
   margin-right: 20px;
   width: 100%;
 }
