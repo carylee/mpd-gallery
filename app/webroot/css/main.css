@@ -192,10 +192,10 @@ h3 {
 #templatemo_banner_wrapper {
 	clear: both;
 	width: 100%;
-	height: 120px;
+	height: 150px;
   overflow: hidden;
 	margin: 0 auto;	
-	background: #000000 url(../img/templatemo_banner_bg_wrapper.jpg) no-repeat center top;
+	background: #000000 url(../img/FotoFlexer_Photo8.jpg) no-repeat center top;
 }
 
 #templatemo_banner {
@@ -491,7 +491,7 @@ div#user-status {
 }
 
 #user-status p, #user-status a {
-  color: rgba(200,200,200,0.8) !important;
+  color: rgba(0,0,0,0.8) !important;  /*used to be 200 200 200*/
 }
 
 #user-status p {
@@ -500,7 +500,7 @@ div#user-status {
 }
 
 #user-status a:hover, #user-status a:visited {
-  color: rgba(200,200,200,1) !important;
+  color: rgba(0,0,0,1) !important; /*used to be 200 200 200*/
 }
 
 div.project-picture-edit img {
@@ -510,7 +510,7 @@ div.project-picture-edit img {
 }
 
 div.project-picture-edit {
-  border: 1px solid rgb(200,200,200);
+  border: 1px solid rgb(0,0,0);   /*used to be 200 200 200*/
   padding: 10px;
   margin-right: 10px;
   float: left;
