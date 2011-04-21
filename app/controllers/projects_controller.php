@@ -144,29 +144,24 @@ class ProjectsController extends AppController {
 		}
 	}
 	
-  function like($id=null)
-    {
-	  /*  if (!$id || !$newlike)
-		{
-		     $this->Session->setFlash(__('sorry, please try again', true));
-			 $this->redirect(array('action'=>'view',$id));
-		}*/
-    if(isset($id)) {
+  function like($id=null) {
+    if(!$id) {
+      $this->Session->setFlash(__('Invalid project', true));
+      $this->redirect(array('action' => 'index'));
+    }
+    else {
       $project = $this->Project->findById($id);
+      //pr($project);
       $likes = $project['Project']['like'];
       $newlike = $likes + 1;
+      $this->layout = 'ajax';
+      if($this->Project->saveField('like', $newlike)) {
+        $this->set('likes', $newlike);
+      }
+      else {
+        $this->set('likes', $likes);
+      }
     }
-
-		if ( $this->Project->saveField('like',$newlike))
-		{
-		     //$this->Session->setFlash(__('Thanks!', true));
-			 $this->redirect(array('action'=>'view',$id));
-		}
-		else
-		{
-		     $this->Session->setFlash(__('Sorry, try again', true));
-			 $this->redirect(array('action'=>'view',$id));
-		}
 	}
 
 	/*function setCover($id=null,$picorder=null)

@@ -1,3 +1,7 @@
+<div id="normal-breadcrumbs">
+  <a href="/projects">Browse portfolio</a> &gt; <?php echo $this->Html->link($project['Project']['title'], 
+      array('controller'=>'projects', 'action'=>'view', $project['Project']['id']));?> &gt; Edit
+</div>
 <div class="projects">
 <?php echo $this->Form->create('Project',array('url'=>array('action'=>'edit'), 'type'=>'file'));?>
 	<fieldset>

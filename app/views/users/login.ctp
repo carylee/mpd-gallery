@@ -1,3 +1,6 @@
+<div id="normal-breadcrumbs">
+  <a href="/projects">Browse portfolio</a> &gt; Login
+</div>
 <?php
     echo $this->Session->flash('auth');
     echo $this->Form->create('User', array('action' => 'login'));
