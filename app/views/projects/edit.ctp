@@ -30,7 +30,9 @@
 	  <?php endif;?>
 	  </fieldset>
 	  <fieldset>
-		<legend><?php __('Add Pictures'); ?></legend><div style= "font-size:15px;color:red"> * Note: only .jpg .jnp .gif  files within 2MB are allowed! </div>
+		<legend><?php __('Add Pictures'); ?></legend>
+		  <?php if (count($project['Picture']) <4) :?>
+		<div style= "font-size:15px;color:red"> * Note: only .jpg .jnp .gif  files within 2MB are allowed! </div>
       <div id="pictures">
         <div class="add-picture">
           <?php
@@ -42,6 +44,9 @@
         </div>
       </div>
       <button id="add-picture-field">Add another?</button>
+	   <?php else:?>
+	  <div style= "font-size:15px;color:red">You have reached the maximum number of pictures.</div>
+	  <?php endif;?>
 	</fieldset>
 <fieldset>
 <div id="participants">
