@@ -526,6 +526,6 @@ span.recipient-name {
 
 .not-a-link {
   font-weight: normal;
-  color: black;
+  color: black !important;
   cursor: default;
 }
