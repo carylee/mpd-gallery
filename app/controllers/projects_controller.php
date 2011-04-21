@@ -23,6 +23,7 @@ class ProjectsController extends AppController {
 			$this->Session->setFlash(__('Invalid project', true));
 			$this->redirect(array('action' => 'index'));
 		}
+    $this->set('liked', $this->Session->check("liked-project-" . $id));
 		$this->set('project', $this->Project->read(null, $id));
 	}
 
@@ -151,16 +152,15 @@ class ProjectsController extends AppController {
     }
     else {
       $project = $this->Project->findById($id);
-      //pr($project);
       $likes = $project['Project']['like'];
-      $newlike = $likes + 1;
+      $name = "liked-project-" . $id;
+      if(!$this->Session->check($name)) {
+        $likes = $likes + 1;
+        $this->Session->write($name, 'true');
+        $this->Project->saveField('like', $likes);
+      }
       $this->layout = 'ajax';
-      if($this->Project->saveField('like', $newlike)) {
-        $this->set('likes', $newlike);
-      }
-      else {
-        $this->set('likes', $likes);
-      }
+      $this->set('likes', $likes);
     }
 	}
 

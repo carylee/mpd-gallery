@@ -523,3 +523,9 @@ div.project-picture-edit {
 span.recipient-name {
   font-style: italic;
 }
+
+.not-a-link {
+  font-weight: normal;
+  color: black;
+  cursor: default;
+}

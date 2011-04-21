@@ -36,9 +36,14 @@
     <br />
     <div id="likes">
         <p><span id="like-count"><?php echo $project['Project']['like'];?></span> people 
-        <?php $like = $project['Project']['like']; 
-              $like++; 
-              echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id'], $like), array('id'=>'like'));?>
+<?php 
+     if(!$liked) {
+       echo $this->Html->link('like', array( 'action'=>'like',$project['Project']['id']), array('id'=>'like'));
+     }
+     else {
+       echo "like";
+     }
+?>
          this project.</p>
     </div>
     <br />
