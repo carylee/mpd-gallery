@@ -5,7 +5,7 @@
     </div>
     <div class="product_img_wrapper">
     <?php if (count($project['Picture']) < 1 ): ?>
-      <img src="http://placekitten.com/500/300">
+     <img  src="http://www.nuigalway.ie/mooreinstitute/img/no_image_available_600_600.jpg" width="300" height="280">
     <?php else: 
 	if ($project['Project']['cover'])//project.cover is the id of cover pic
 	{
@@ -15,7 +15,7 @@
 	echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo")); endforeach;
 	}else{
      echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array("alt"=>"photo"));} ?>
-      <?php //echo $this->Html->image('projects/' . $project['Picture'][0]['filename'], array('alt'=>'product')); ?>
+   
     <?php endif; ?>
     </div>
     <br />

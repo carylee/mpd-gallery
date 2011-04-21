@@ -12,8 +12,11 @@
 	?>
 	</fieldset>
 		<fieldset>
-		<legend><?php __('Edit Pictures'); ?></legend>
-	<?php $j=0;
+		<legend><?php __('Edit Pictures');$j=0 ?></legend>
+		  <?php if (count($project['Picture']) < 1 ): ?>
+		  <div>No image. </div>
+	<?php else:
+	// $j=0;
 	     foreach ($project['Picture'] as $picture): $j++?>
           <div class="project-picture-edit">
           <div class="margin_r_10"><?php echo $this->Html->image('projects/' . $picture['filename']);?></div>
@@ -24,9 +27,12 @@
           </div>
 		     
       <?php endforeach; ?>
+	  <?php endif;?>
 	  </fieldset>
 	  <fieldset>
 		<legend><?php __('Add Pictures'); ?></legend>
+		  <?php if (count($project['Picture']) <4) :?>
+		<div style= "font-size:15px;color:red"> * Note: only .jpg .jnp .gif  files within 2MB are allowed! </div>
       <div id="pictures">
         <div class="add-picture">
           <?php
@@ -38,6 +44,9 @@
         </div>
       </div>
       <button id="add-picture-field">Add another?</button>
+	   <?php else:?>
+	  <div style= "font-size:15px;color:red">You have reached the maximum number of pictures.</div>
+	  <?php endif;?>
 	</fieldset>
 <fieldset>
 <div id="participants">
