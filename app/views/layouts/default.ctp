@@ -22,9 +22,10 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-    MPD&#178; Product Gallery
+     MPD&#178; Product Gallery
 		<?php echo $title_for_layout; ?>
 	</title>
+    <link href='http://fonts.googleapis.com/css?family=Nobile:regular,bold' rel='stylesheet' type='text/css'>
 	<?php
 		echo $this->Html->meta('icon');
     echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');

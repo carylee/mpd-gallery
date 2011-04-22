@@ -6,7 +6,7 @@ body {
 	margin: 0;
 	padding: 0;
 	line-height: 1.7em;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: 'nobile', 'helvetica', Georgia, "Times New Roman", Times, serif;
 	font-size: 12px;
 	color: #666666;
     background: #ffffff;
@@ -155,7 +155,7 @@ h3 {
 
 #templatemo_menu ul {
 	margin: 0px;
-  margin-left: 200px;
+  margin-left: 210px;
 	padding: 13px 0 0 20px;
 	list-style: none;
   height: 10px;
