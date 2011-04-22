@@ -43,7 +43,7 @@
 		</div>-->
   <div id="templatemo_banner_wrapper">
   <div id="templatemo_menu">
-  <ul>
+  <ul class='nav'>
   <!-- class="current"--> <li><a href="http://www.mpd.northwestern.edu/"><span>MPD2</span></a></li>
     <li><a href="http://www.mpd.northwestern.edu/nes/upcoming_events.php"><span>events
  </span></a></li>

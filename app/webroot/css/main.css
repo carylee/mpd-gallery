@@ -167,7 +167,7 @@ h3 {
 	display: inline;
 }
 
-#templatemo_menu ul li a {
+#templatemo_menu ul.nav li a {
 	display: inline;
 	height: 22px;
 	/*padding: 0px 10px 0 5px;*/
@@ -222,67 +222,6 @@ h3 {
 /* end of banner */
 
 /* menu */
-
-#templatemo_follow_me_wrapper {
-	width: 100%;
-	margin: 0 auto;	
-	background: #d8deb2;
-}
-
-#templatemo_follow_me {
-	width: 990px;
-	margin: 0 auto;
-	padding: 10px 0;
-	background: #d8deb2;
-	text-align: right;
-}
-
-#templatemo_follow_me span {
-	display: inline-block;
-	padding-top: 30px;
-	color: #006695;
-	font-size: 26px;
-	font-weight: bold;	
-	margin-right: 20px;
-}
-
-#templatemo_follow_me .social_network {
-	float: right;
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-}
-
-
-#templatemo_follow_me .social_network li {
-	margin: 0px;
-	padding: 0px;
-	display: inline;
-}
-
-#templatemo_follow_me .social_network li a {
-	float: left;
-	display: block;
-	width: 62px;
-	height: 78px;
-	margin-left: 10px;
-}
-
-#templatemo_follow_me .social_network li .facebook {
-	background: url(../img/facebook_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .twitter {
-	background: url(../img/twitter_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .linkin {
-	background: url(../img/linkin_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .flickr {
-	background: url(../img/flickr_icon.png) no-repeat;
-}
 
 /* end of menu */
 
