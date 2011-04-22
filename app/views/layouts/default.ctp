@@ -22,7 +22,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-    MPDD Product Gallery
+    MPD&#178; Product Gallery
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -71,12 +71,15 @@
   <div class="cleaner"></div>
 
 		<div id="content">
+      <div id="templatemo_content">
+
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
 
-		</div>
+      </div>
+    </div>
 		<div id="footer">
 		</div>
 	</div>

@@ -2,7 +2,6 @@
   <a href="/projects">Browse portfolio</a> &gt; <?php echo $this->Html->link($project['Project']['title'], 
       array('controller'=>'projects', 'action'=>'view', $project['Project']['id']));?> &gt; Edit
 </div>
-<div class="projects">
 <?php echo $this->Form->create('Project',array('url'=>array('action'=>'edit'), 'type'=>'file'));?>
 	<fieldset>
 		<legend><?php __('Edit Project'); ?></legend>
@@ -23,7 +22,7 @@
 	// $j=0;
 	     foreach ($project['Picture'] as $picture): $j++?>
           <div class="project-picture-edit">
-          <div class="margin_r_10"><?php echo $this->Html->image('projects/' . $picture['filename']);?></div>
+          <?php echo $this->Html->image('projects/' . $picture['filename']);?>
             <ul>
               <li><?php echo $this->Html->link(__('Set as Cover',true),array('controller'=>'projects','action'=>'setCover',$project['Project']['id'],$picture['id']));?></li>
               <li><?php echo $this->Html->link(__('Delete', true), array('controller'=>'pictures','action' => 'delete', $picture['id']), array('class'=>'delete-picture'));?></li>
@@ -47,7 +46,7 @@
           ?>
         </div>
       </div>
-      <button id="add-picture-field">Add another?</button>
+      <button class='add' id="add-picture-field">Add another?</button>
 	   <?php else:?>
 	  <div style= "font-size:15px;color:red">You have reached the maximum number of pictures.</div>
 	  <?php endif;?>
@@ -65,9 +64,8 @@
   </fieldset>
 <?php endforeach; ?>
 </div>
-<button id="add-participant-field">Add another?</button>
+<button class='add' id="add-participant-field">Add another?</button>
 </fieldset>
   
 <?php echo $this->Html->link('Cancel', array('action'=>'view', $project['Project']['id'])); ?>
 <?php echo $this->Form->end(__('Submit', true));?>
-</div>

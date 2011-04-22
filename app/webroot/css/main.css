@@ -12,8 +12,8 @@ body {
     background: #ffffff;
 }
 
-a:link, a:visited { color: #0066CC; text-decoration: none; } 
-a:active, a:hover { color: #990000; text-decoration: none; }
+a:link, a:visited { color: rgb(73,47,148); text-decoration: none; } 
+a:active, a:hover { color: rgb(0,124132); text-decoration: none; }
 
 p { margin: 0px; padding: 0px; }
 
@@ -236,7 +236,7 @@ h3 {
 
 .product_box {
 	float: left;
-	width: 212px;
+	width: 180px;
 	background: #f1f1f1;
 	border: 1px solid #e0e0e0;
 	padding: 8px;
@@ -244,8 +244,8 @@ h3 {
   overflow: hidden;
 }
 .product_box img {
-  height: 210px;
-  width: 210px;
+  height: 178px;
+  width: 178px;
 }
 .image_box {
 float: left;
@@ -257,7 +257,7 @@ float: left;
     margin-left: 550px;
 }
 .product_box:hover {
-	background: #e7ebce;
+	background: rgba(108,174,224,0.4);
 }
 
 .product_box a {
@@ -278,7 +278,7 @@ float: left;
 	height: 20px;
 	font-size: 16px;
 	padding: 10px;
-	color: #85896f;
+	color: rgb(0,124,132);
 	border: 1px solid #fff;
 	text-align: center;
 	background: url(img/templatemo_product_box_title_bg.jpg) repeat-x;
@@ -403,9 +403,8 @@ img.project-thumbnail {
   width: 70px;
   cursor: pointer;
 }
-#breadcrumbs {
-  position: absolute;
-  top: -25px;
+#normal-breadcrumbs {
+  margin: 10px 0;
 }
 
 div.product_img_wrapper img {
@@ -427,8 +426,9 @@ p.presentation_date {
 
 div#user-status {
   margin-top: 70px;
-  margin-right: 20px;
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 950px;
 }
 
 #user-status p, #user-status a {
@@ -446,16 +446,17 @@ div#user-status {
 
 div.project-picture-edit img {
   display:block;
-  margin: 5px;
   width: 150px;
+  height: 150px;
+  margin-bottom: 5px;
 }
 
 div.project-picture-edit {
-  border: 1px solid rgb(0,0,0);   /*used to be 200 200 200*/
+  border: 1px solid rgb(200,200,200);   /*used to be 200 200 200*/
   padding: 10px;
-  margin-right: 10px;
+  margin-right: 20px;
   float: left;
-  width: 170px;
+  width: 150px;
   height: 200px;
   display: inline;
   clear: none;
@@ -469,4 +470,14 @@ span.recipient-name {
   font-weight: normal;
   color: black !important;
   cursor: default;
+}
+
+fieldset legend {
+  color: rgb(210,111,26);
+}
+
+button.add {
+  height: 30px;
+  width: 100px;
+  float: right;
 }

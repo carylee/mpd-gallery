@@ -21,7 +21,7 @@
           ?>
         </div>
       </div>
-      <button id="add-picture-field">Add another?</button>
+      <button class="add" id="add-picture-field">Add another?</button>
     </fieldset>
     <fieldset>
       <legend>Participants</legend>
@@ -32,7 +32,7 @@
             echo $this->Form->input("Participant.0.company");?>
       </fieldset>
       </div>
-      <button id="add-participant-field">Add another?</button>
+      <button class="add" id="add-participant-field">Add another?</button>
     </fieldset>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
