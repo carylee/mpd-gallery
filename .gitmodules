@@ -1,3 +1,0 @@
-[submodule "src/app/plugins/meio_upload/models/behaviors/meio_upload"]
-	path = src/app/plugins/meio_upload
-	url = git://github.com/jrbasso/MeioUpload.git
