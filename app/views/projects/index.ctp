@@ -1,4 +1,4 @@
-<h1>MPD2 Product Gallery</h1>
+<h1>MPD&#178; Product Gallery</h1>
 <?php
 $i = 0;
 foreach ($projects as $project):
