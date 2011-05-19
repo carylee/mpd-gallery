@@ -1,5 +1,6 @@
-/app/config/database.php
-/app/tmp
-/plugins
-/vendors
+/src/app/config/database.php
+/src/app/tmp
+/src/plugins
+/src/vendors
+/build/*
 .*.swp
