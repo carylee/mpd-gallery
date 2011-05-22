@@ -54,7 +54,7 @@ function testLoginGoesToProjects() {
     $this->assertText('Manage');
     $this->clickLink('Manage');
     $this->clickLink('Add a new user');
-    $this->assertText('Actions');
+    $this->assertText('Add User');
 
   }
 }
