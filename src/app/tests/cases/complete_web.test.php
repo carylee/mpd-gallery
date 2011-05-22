@@ -44,6 +44,7 @@ class CompleteWebTestCase extends CakeWebTestCase {
 function testLoginGoesToProjects() {
     $this->restart();  # restarts the browser as if a new session
     $this->get($this->baseurl . "/users/login");
+    $this->assertText('Browse');
     $this->assertField('data[User][username]', '');
     //Our admin account is username:admin password:hello
     $this->setField('data[User][username]', 'admin');
