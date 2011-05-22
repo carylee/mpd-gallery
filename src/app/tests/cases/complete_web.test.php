@@ -6,7 +6,8 @@ class CompleteWebTestCase extends CakeWebTestCase {
     //$port = '8888';
     //$host = 'appmojo';
     //$this->baseurl = 'http://' . $host . ':' . $port;
-    $this->baseurl = 'http://mpdd-staging.caryme.com';	
+$this->baseurl = 'http://localhost/src';    
+    //$this->baseurl = 'http://mpdd-staging.caryme.com';	
   }
   
   /*---------------- DATABASE CLEANUP STUFF -----------------*/
