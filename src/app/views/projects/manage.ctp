@@ -1,7 +1,7 @@
 <div id="normal-breadcrumbs">
   <a href="/projects">Portfolios</a> &gt; Manage
 </div>
-<a href="/users/add">Add a new user</a>
+<a href="/src/users/add">Add a new user</a>
 	<h2><?php __('Manage Projects');?></h2>
   <h3><?php echo $this->Html->link('Add a new project', array('action'=>'add')); ?></h3>
 	<table cellpadding="0" cellspacing="0">
