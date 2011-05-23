@@ -1,8 +1,7 @@
 <?php
 class ManageTest extends CakeWebTestCase{
 function ManageTest(){
-//	$this->baseurl =$this->base;
-	$this->baseurl = '165.124.216.244';
+	$this->baseurl =$this->base;
 }
 
 function testManageUsers(){
