@@ -2,6 +2,7 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
+  var $components = array('Acl');
 
   function login() {
   }
@@ -9,6 +10,33 @@ class UsersController extends AppController {
   function logout() {
     $this->redirect($this->Auth->logout());
   }
+
+  function createAros() {
+    $aro =& $this->Acl->Aro;
+    
+    //Here's all of our group info in an array we can iterate through
+    $groups = array(
+      0 => array(
+        'alias' => 'admins'
+      ),
+      1 => array(
+        'alias' => 'students'
+      ),
+      2 => array(
+        'alias' => 'visitors'
+      ),
+    );
+    
+    //Iterate and create ARO groups
+    foreach($groups as $data)
+    {
+      $aro->create();
+      
+      //Save data
+      $aro->save($data);
+    }
+  }
+
 
 	function index() {
 		$this->User->recursive = 0;
@@ -96,6 +124,12 @@ class UsersController extends AppController {
 		}
                				 
         }
+	
+		function manage() {
+		$this->Project->recursive = 0;
+		$this->set('users', $this->paginate());
+	//	$this->set('users',$this->User->find('all',array('controller'=>'user')));
+	}
 
 }
 ?>
