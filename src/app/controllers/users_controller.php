@@ -2,7 +2,7 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-  var $components = array('Acl');
+ // var $components = array('Acl');
 
   function login() {
   }
@@ -11,7 +11,7 @@ class UsersController extends AppController {
     $this->redirect($this->Auth->logout());
   }
 
-  function createAros() {
+ /* function createAros() {
     $aro =& $this->Acl->Aro;
     
     //Here's all of our group info in an array we can iterate through
@@ -36,7 +36,7 @@ class UsersController extends AppController {
       $aro->save($data);
     }
   }
-
+*/
 
 	function index() {
 		$this->User->recursive = 0;
