@@ -6,7 +6,8 @@ function ManageTest(){
 
 function testManageUsers(){
 $this->get($this->baseurl."/users/manage");
-$this->click('add a new user');
+//$this->click('add a new user');
+$this->get($this->baseurl."/users/add");
 $this->verifyAddNewUserFormDisplayed();
 $this->addUserTest();
 }
