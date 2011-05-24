@@ -2,6 +2,7 @@
 class Project extends AppModel {
 	var $name = 'Project';
 	var $displayField = 'title';
+  var $belongsTo = 'Status';
 	var $validate = array(
 		'title' => array(
 			'notempty' => array(
@@ -82,7 +83,8 @@ class Project extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+    ),
+
 	);
 
 }

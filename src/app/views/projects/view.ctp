@@ -44,6 +44,8 @@ echo $this->Html->image('projects/' . $picture['filename'], array("alt"=>"photo"
    }
 ?>
        this project.</p>
+  <br />
+  <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="caryme">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   </div>
   <br />
   <h3>On This Project</h3>

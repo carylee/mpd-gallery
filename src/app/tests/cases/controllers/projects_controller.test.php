@@ -12,7 +12,7 @@ class TestProjectsController extends ProjectsController {
 }
 
 class ProjectsControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.project', 'app.participant', 'app.picture');
+	var $fixtures = array('app.project', 'app.participant', 'app.picture', 'app.status');
 
 	function startTest() {
 		$this->Projects =& new TestProjectsController();
@@ -27,6 +27,7 @@ class ProjectsControllerTestCase extends CakeTestCase {
 	function testIndex() {
 
 	}
+
 
 	function testView() {
 
