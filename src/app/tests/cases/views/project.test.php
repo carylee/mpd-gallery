@@ -2,7 +2,7 @@
 class ProjectWebTestCase extends CakeWebTestCase {
 
   function ProjectWebTestCase() {
-    $this->baseurl = "http://mpd";
+    $this->baseurl = "http://mpdd-staging.caryme.com";
   }
 
   function testShareOnTwitter() {
