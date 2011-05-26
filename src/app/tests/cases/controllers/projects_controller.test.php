@@ -28,6 +28,23 @@ class ProjectsControllerTestCase extends CakeTestCase {
 
 	}
 
+  function testLike() {
+    $this->Project =& ClassRegistry::init('Project');
+    $id = 4;
+    $project = $this->Project->findById($id);
+    debug($project);
+    $likes = $project['Project']['like'];
+    $result = $this->testAction("/projects/like/$id",
+      array('return' => 'vars')
+    );
+    debug($result);
+    $result = $this->testAction("/projects/like/$id",
+      array('return' => 'vars')
+    );
+    debug($result);
+    //$this->AssertEqual($likes+1, $newLikes);
+  }
+
 
 	function testView() {
 

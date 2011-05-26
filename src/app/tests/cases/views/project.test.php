@@ -9,6 +9,11 @@ class ProjectWebTestCase extends CakeWebTestCase {
     $this->get($this->baseurl . '/projects/view/4');
     $this->assertText("Tweet");
   }
+
+  function testLikeShouldIncreaseCount() {
+    $this->get($this->baseurl . '/projects/view/4');
+    $this->click("like");
+  }
 }
 
 ?>
